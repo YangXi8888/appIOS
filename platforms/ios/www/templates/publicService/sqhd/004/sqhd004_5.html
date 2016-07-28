@@ -1,0 +1,34 @@
+<ion-view view-title="投诉举报">
+  <ion-nav-buttons side="left">
+      <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+      <button class="button button-clear icon ion-navicon-round" ng-click="openNsfwPopover($event)"></button>
+  </ion-nav-buttons>
+  <ion-content>
+      <div class="list card">
+          <div class="item item-divider">
+              <h2>办理时限>></h2>
+          </div>
+          <div class="item item-text-wrap">
+              <div>
+                  1.我们会在收到纳税服务投诉后3个工作日内进行审查，决定是否受理，并告知您审查结果。
+              </div>
+              <div>
+                  2.对税务人员服务态度投诉，我们会在受理之日起10个工作日内办结；其他投诉，我们会在自受理之日起20个工作日办结。
+                  对于复杂投诉事项，办结时限将会延期，但不会超过15个工作日内办结。
+              </div>
+              <div align="center">
+                  <button class="button button-outline button-positive button-small" ng-click="wyts()">我要投诉</button>
+              </div>
+          </div>
+          <div class="item item-divider">
+              投诉列表>>
+          </div>
+          <div class="item item-icon-right assertive" ng-repeat="lb in lb">
+              <i class="icon ion-close icon-accessory" ng-click="tslb_delete(lb.id,lb.code)"></i>
+              <span ng-click="tslb_xq(lb.id,lb.code)">{{lb.title}}</span>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>

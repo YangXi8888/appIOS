@@ -1,0 +1,100 @@
+<ion-view title="发票验证" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear icon ion-ios-search-strong" ng-click="codeScan();"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <!--<ion-list>-->
+            <!--<ion-item class="item-icon-right" ng-click="codeScan();">-->
+                <!--扫描条形码验证-->
+                <!--<i class="icon ion-ios-arrow-right"></i>-->
+            <!--</ion-item>-->
+            <!--<ion-item class="item-icon-right" ng-click="">-->
+                <!--手工输入验证-->
+                <!--<i class="icon ion-ios-arrow-right"></i>-->
+            <!--</ion-item>-->
+        <!--</ion-list>-->
+        <div class="padding">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">发票代码</span>
+                    <input ng-model="fpyz.fpdm" type="number" placeholder="">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">发票号码</span>
+                    <input ng-model="fpyz.fphm" type="number" placeholder="">
+                </label>
+                <br/>
+                <div class="" style="margin-left: 30%;">
+                    <button class="button  button-positive"  ng-click="openYZJGModal();sgsryz();"  ng-disabled="!(fpyz.fphm && fpyz.fpdm)">确定</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="button  button-stable" ng-click="clear();"  ng-disabled="">清空</button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+<script id="yzjg.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-positive item-button-left" align-title="center">
+            <a class="button button-clear icon ion-ios-close-outline" ng-click="closeYZJGModal();"></a>
+            <h1 class="title">查询结果</h1>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list>
+                <div class="item item-divider" style="color:#999999;"  align="left"><i class="ion-android-arrow-dropright"></i> <a > 发票开具信息 </a></div>
+                <ion-item class="item-input">
+                    <span class="input-label" style="text-align: left">开票日期</span>
+                    <input type="text" ng-model="yzjg.kprq" readonly="readonly" style="text-align: center">
+                </ion-item>
+                <ion-item class="item-input">
+                    <span class="input-label" style="text-align: left">付款方名称</span>
+                    <input type="text" ng-model="yzjg.fkfmc" readonly="readonly" style="text-align: center">
+                </ion-item>
+                <ion-item class="item-input">
+                    <span class="input-label" style="text-align: left">付款方识别号</span>
+                    <input type="text" ng-model="yzjg.fkfnsrsbm" readonly="readonly" style="text-align: center">
+                </ion-item>
+                <ion-item class="item-input">
+                    <span class="input-label" style="text-align: left">付款方税务管理码</span>
+                    <input type="text" ng-model="yzjg.fkfswglm" readonly="readonly" style="text-align: center">
+                </ion-item>
+                <ion-item class="item-input">
+                    <span class="input-label" style="text-align: left">收款方名称</span>
+                    <input type="text" ng-model="yzjg.skfmc" readonly="readonly" style="text-align: center">
+                </ion-item>
+                <ion-item class="item-input">
+                    <span class="input-label" style="text-align: left">收款方识别号</span>
+                    <input type="text" ng-model="yzjg.skfnsrsbm" readonly="readonly" style="text-align: center">
+                </ion-item>
+                <ion-item class="item-input">
+                    <span class="input-label" style="text-align: left">收款方税务管理码</span>
+                    <input type="text" ng-model="yzjg.skfswglm" readonly="readonly" style="text-align: center">
+                </ion-item>
+                <div class="item item-divider" style="color:#999999;"  align="left"><i class="ion-android-arrow-dropright"></i> <a > 发票领用信息 </a></div>
+                <ion-item class="item-input">
+                    <span class="input-label" style="text-align: left">开票金额(元)</span>
+                    <input type="text" ng-model="yzjg.kpje" readonly="readonly" style="text-align: center">
+                </ion-item>
+                <ion-item class="item-input">
+                    <span class="input-label" style="text-align: left">打印方式</span>
+                    <input type="text" ng-model="yzjg.dyfsmc" readonly="readonly" style="text-align: center">
+                </ion-item>
+                <ion-item class="item-input">
+                    <span class="input-label" style="text-align: left">开具信息来源</span>
+                    <input type="text" ng-model="yzjg.kpxxly" readonly="readonly" style="text-align: center">
+                </ion-item>
+                <div class="item item-divider" style="color:#999999;"  align="left"><i class="ion-android-arrow-dropright"></i> <a > 发票种类信息 </a></div>
+                <ion-item class="item-input">
+                    <span class="input-label" style="text-align: left">印制企业</span>
+                    <input type="text" ng-model="yzjg.yzqymc" readonly="readonly" style="text-align: center">
+                </ion-item>
+                <ion-item class="item-input">
+                    <span class="input-label" style="text-align: left">适用范围</span>
+                    <input type="text" ng-model="yzjg.syfw" readonly="readonly" style="text-align: center">
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>
+</script>

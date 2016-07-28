@@ -1,0 +1,25 @@
+<ion-view view-title="办班通知">
+    <ion-nav-buttons side="left">
+       <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+       <button class="button button-clear icon ion-navicon-round" ng-click="openNsrxtPopover($event)"></button>
+    </ion-nav-buttons>
+    <ion-content has-bouncing="true">
+        <ion-refresher
+          pulling-text="下拉刷新..."
+          on-refresh="loadRefresh()" spinner="ios">
+        </ion-refresher>
+        <ion-list class="topics"  ng-if="showloading==false">
+            <ion-item ng-click="loadContent(con.href)" ng-repeat="con in sqhd003_Content" class="item-icon-right sstzItem" style="background-color: {{con.backcolor}}">
+                <i class="icon ion-ios-arrow-right icon-accessory"></i>
+                <p >{{con.title}}</p>
+            </ion-item>
+        </ion-list>
+        <div ng-if="infiniteIcon" style="text-align: center;">
+            <div style="margin-top: 10px;"><ion-spinner icon="ios"></ion-spinner><span style="font-size: 16px;color:#B0B4BA;position: relative;bottom:6px">&nbsp;&nbsp;加载中...</span></div>
+        </div>
+        <ion-infinite-scroll icon="ion-load-d" on-infinite="loadInfinite()" distance="1%" ng-if="nextPage" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

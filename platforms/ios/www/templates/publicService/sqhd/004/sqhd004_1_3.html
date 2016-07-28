@@ -1,0 +1,25 @@
+<ion-view view-title="投诉举报">
+  <ion-nav-buttons side="left">
+      <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-content>
+      <div class="list">
+          <div class="item item-divider">
+            <h2>回复公开列表>></h2>
+          </div>
+          <div class="item item-text-wrap" ng-repeat="list in hfgk_list">
+              <div><span style="float: left;">办件编号</span><p style="margin-left: 30%">{{list.vc_mailnumber}}</p></div>
+              <div><span style="float: left;">办件类型</span><p style="margin-left: 30%">{{list.vc_mailpropertyname}}</p></div>
+              <div><span style="float: left;">主题</span><p style="margin-left: 30%;color:#8BC1F0" ng-click="gkhf_content(list.vc_id)">{{list.title}}</p></div>
+              <div><span style="float: left;">处理情况</span><p style="margin-left: 30%">{{list.state}}</p></div>
+              <div><span style="float: left;">来信时间</span><p style="margin-left: 30%">{{list.dt_sendtime}}</p></div>
+              <div><span style="float: left;">受理时间</span><p style="margin-left: 30%">{{list.endtime}}</p></div>
+              <div><span style="float: left;">点击次数</span><p style="margin-left: 30%">{{list.i_pointnum}}</p></div>
+          </div>
+          <div class="item" align="center" ng-if="fanYe">
+              <a class="button button-outline button-small button-calm" ng-click="previousPage()" ng-disabled="!previousDisplay">{{previous}}</a>&nbsp;&nbsp;&nbsp;
+              <a class="button button-outline button-small button-calm" ng-click="nextPage()" ng-disabled="!nextDisplay">{{next}}</a>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,30 @@
+<ion-view view-title="预约服务通知书" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back();">返回</button>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+        <div style="margin-top:10px;">
+            <p>为有效保障您使用本服务的合法权益，请详细阅读本协议内容，理解并同意遵守以下规定：</p>
+            <p>
+              一、预约时间只能选择当前日期1个工作日之后，如8号（星期五）提交预约申请只能预约11号（周一）及以后的时间。时间不可选说明该时间段预约数量已达上限，请选择其他时间段。</p>
+            <p>
+              二、纳税人凭预约确认短信到指定办税服务厅办理业务。办税服务厅只受理该预约事项。如有其他业务需同时办理的，请在预约备注信息里注明，否则需现场重新取号办理。
+            </p>
+            <p>
+              三、预约流水号仅适用在当前预约时间段内优先办理业务，超过预约有效期则视为无效号。
+            </p>
+            <p>
+              四、纳税人如果无法按预约时间前往指定办税服务厅办理业务的，应及时拨打12366-2人工取消预约服务，否则将被视为失约。自第一次申请预约服务之日起90天内，超过3次（含3次）不及时履约的，将被列入预约服务黑名单，黑名单生效之日起90天内将不得再次申请预约服务。
+            </p>
+            <p>
+              特此说明
+            </p>
+
+            <br>
+            <div style="text-align: center;">
+                <a class="button button-outline button-assertive" ng-click="disAgree()" style="border-radius: 10px;width: 30%">不同意</a>&nbsp;&nbsp;&nbsp;
+                <a class="button button-outline button-positive" ng-click="agree()" style="border-radius: 10px;width: 30%">同&nbsp;&nbsp;意</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

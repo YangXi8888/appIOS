@@ -1,0 +1,88 @@
+<ion-view title="税种税率" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button  class="button button-icon button-clear ion-navicon" menu-toggle="right" ng-click="openPopover($event);"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <!--<ion-item class="item-icon-right" ng-click="openSLMXModal();szslmx('taxType1');">营业税<i class="icon ion-ios-arrow-down"></i></ion-item>-->
+            <ion-item class="item-icon-right" ng-click="openSLMXModal();szslmx('taxType2');">企业所得税<i class="icon ion-ios-arrow-down"></i></ion-item>
+            <ion-item class="item-icon-right" ng-click="openSLMXModal();szslmx('taxType3');">个人所得税<i class="icon ion-ios-arrow-down"></i></ion-item>
+            <ion-item class="item-icon-right" ng-click="openSLMXModal();szslmx('taxType4');" ng-if="tax4">资源税<i class="icon ion-ios-arrow-down"></i></ion-item>
+            <ion-item class="item-icon-right" ng-click="openSLMXModal();szslmx('taxType5');">土地使用税<i class="icon ion-ios-arrow-down"></i></ion-item>
+            <ion-item class="item-icon-right" ng-click="openSLMXModal();szslmx('taxType6');">维护建设税<i class="icon ion-ios-arrow-down"></i></ion-item>
+            <ion-item class="item-icon-right" ng-click="openSLMXModal();szslmx('taxType7');">印花税<i class="icon ion-ios-arrow-down"></i></ion-item>
+            <ion-item class="item-icon-right" ng-click="openSLMXModal();szslmx('taxType8');">土地增值税<i class="icon ion-ios-arrow-down"></i></ion-item>
+            <ion-item class="item-icon-right" ng-click="openSLMXModal();szslmx('taxType9');">房产税<i class="icon ion-ios-arrow-down"></i></ion-item>
+            <ion-item class="item-icon-right" ng-click="openSLMXModal();szslmx('taxType10');" ng-if="tax10">车船税<i class="icon ion-ios-arrow-down"></i></ion-item>
+            <ion-item class="item-icon-right" ng-click="openSLMXModal();szslmx('taxType11');" ng-if="tax11">契&nbsp;&nbsp;税<i class="icon ion-ios-arrow-down"></i></ion-item>
+            <ion-item class="item-icon-right" ng-click="openSLMXModal();szslmx('taxType12');" ng-if="tax12">耕地占用税<i class="icon ion-ios-arrow-down"></i></ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+<script id="ez-popover.html" type="text/ng-template">
+    <div style="float: right;margin:26px 9px 0px 0px;">
+        <i class="icon ion-arrow-up-b"></i>
+        <ion-popover-view class="zxzxPopover">
+            <ion-content align="center" class="zxzxContent">
+                <ion-list>
+                    <a ng-click="closePopover();szmx('NJ');" class=" item">南&nbsp;京</a>
+                    <a ng-click="closePopover();szmx('WX');" class=" item">无&nbsp;锡</a>
+                    <a ng-click="closePopover();szmx('XZ');" class=" item">徐&nbsp;州</a>
+                    <a ng-click="closePopover();szmx('CZ');" class=" item">常&nbsp;州</a>
+                    <a ng-click="closePopover();szmx('SZ');" class=" item">苏&nbsp;州</a>
+                    <a ng-click="closePopover();szmx('NT');" class=" item">南&nbsp;通</a>
+                    <a ng-click="closePopover();szmx('LYG');" class=" item">连云港</a>
+                    <a ng-click="closePopover();szmx('HA');" class=" item">淮&nbsp;安</a>
+                    <a ng-click="closePopover();szmx('YC');" class=" item">盐&nbsp;城</a>
+                    <a ng-click="closePopover();szmx('YZ');" class=" item">扬&nbsp;州</a>
+                    <a ng-click="closePopover();szmx('ZJ');" class=" item">镇&nbsp;江</a>
+                    <a ng-click="closePopover();szmx('TZ');" class=" item">泰&nbsp;州</a>
+                    <a ng-click="closePopover();szmx('SQ');" class=" item">宿&nbsp;迁</a>
+                    <a ng-click="closePopover();szmx('SZYQ');" class=" item">苏州园区</a>
+                    <a ng-click="closePopover();szmx('BSQ');" class=" item">张家港保税区</a>
+                    <a ng-click="closePopover();szmx('SZSQ');" class=" item">省直属局</a>
+                <!--<ion-item ng-click="closePopover();szmx('NJ');" class="item-calm text-center">南&nbsp;京</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('WX');" class="item-calm text-center">无&nbsp;锡</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('XZ');" class="item-calm text-center">徐&nbsp;州</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('CZ');" class="item-calm text-center">常&nbsp;州</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('SZ');" class="item-calm text-center">苏&nbsp;州</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('NT');" class="item-calm text-center">南&nbsp;通</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('LYG');" class="item-calm text-center">连云港</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('HA');" class="item-calm text-center">淮&nbsp;安</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('YC');" class="item-calm text-center">盐&nbsp;城</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('YZ');" class="item-calm text-center">扬&nbsp;州</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('ZJ');" class="item-calm text-center">镇&nbsp;江</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('TZ');" class="item-calm text-center">泰&nbsp;州</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('SQ');" class="item-calm text-center">宿&nbsp;迁</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('SZYQ');" class="item-calm text-center">苏州园区</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('BSQ');" class="item-calm text-center">张家港保税区</ion-item>-->
+                <!--<ion-item ng-click="closePopover();szmx('SZSQ');" class="item-calm text-center">省直属局</ion-item>-->
+            </ion-list>
+        </ion-content>
+    </ion-popover-view>
+    </div>
+</script>
+<script id="szslmx.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-positive item-button-left" align-title="center">
+            <a class="button button-clear icon ion-ios-close-outline" ng-click="closeSLMXModal();"></a>
+            <h1 class="title">税种税率明细</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="margin: 5px auto;text-align: center;font-size: 14px;">
+                <h4> <span>{{titt}}税率表</span></h4>
+            </div>
+            <ion-scroll zooming="true" direction="xy" style="width: 500px; height: 500px" >
+                <div style="width: 1500px; height: 3000px;"  class="padding">
+                    <table width="800" border="1" cellspacing="0" cellpadding="0" class="tab_td">
+                        <tbody id="contentDiv"></tbody>
+                    </table>
+                </div>
+            </ion-scroll>
+
+        </ion-content>
+    </ion-modal-view>
+</script>

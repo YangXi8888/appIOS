@@ -1,0 +1,23 @@
+<ion-view view-title="地税微信">
+  <ion-nav-buttons side="left">
+      <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+      <button class="button button-clear icon ion-navicon-round" ng-click="openDswxPopover($event)"></button>
+  </ion-nav-buttons>
+  <ion-content>
+      <div class="list card">
+          <div class="item item-divider" align="center">
+              <h2>扫描二维码关注微信公众号</h2>
+          </div>
+          <div class="item item-text-wrap">
+              <div>1.点击查看二维码，长按保存图片到本地；</div>
+              <div style="line-height: 1.2em">2.打开微信“扫一扫”，右上角选择“从相册选取二维码”扫描加关注。</div>
+          </div>
+          <a class="item item-icon-right assertive" ng-click="openWeixinErweiMa(sqhd006_Content.wxuid)" ng-if="showHide">
+              <i class="icon ion-ios-arrow-right icon-accessory"></i>
+              {{sqhd006_Content.wxmc}}
+          </a>
+      </div>
+  </ion-content>
+</ion-view>

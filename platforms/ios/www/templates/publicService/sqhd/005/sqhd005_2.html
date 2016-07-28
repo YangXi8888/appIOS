@@ -1,0 +1,70 @@
+<ion-view view-title="预约服务" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back();">返回</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="qyyy()">企业预约</button>
+    </ion-nav-buttons>
+    <ion-content>
+
+        <div class="padding-top padding-bottom">
+                <label class="item item-input">
+                    <span class="input-label">预约人姓名</span>
+                    <input ng-model="yyfw.xm" type="text" placeholder="预约人姓名">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">手机号码</span>
+                    <input ng-model="yyfw.sjhm" type="number" placeholder="手机号码">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">单位名称</span>
+                    <input ng-model="yyfw.dwmc" type="text" placeholder="单位名称">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">注册地址</span>
+                    <input ng-model="yyfw.zcdz" type="text" placeholder="注册地址">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">纳税人识别号</span>
+                    <input ng-model="yyfw.nsrsbh" type="number" placeholder="纳税人识别号">
+                </label>
+                <label class="item item-input item-select">
+                    <span class="input-label">所在地市</span>
+                    <select ng-model="yyfw.mrfwtds" ng-options="fwtds.MC for fwtds in fwtds track by fwtds.XZQHDS_DM" ng-change="changeDS()"></select>
+                </label>
+                <label class="item item-input item-select">
+                    <span class="input-label">所在区县</span>
+                    <select ng-model="yyfw.mrfwtqx" ng-options="fwtqx.MC for fwtqx in fwtqx track by fwtqx.XZQHXQ_DM" ng-change="changeQX()"></select>
+                </label>
+                <label class="item item-input item-select">
+                    <span class="input-label">预约办税服务厅</span>
+                    <select ng-model="yyfw.mryybsfwt" ng-options="yybsfwt.MC for yybsfwt in yybsfwt track by yybsfwt.FWT_DM" ng-change=""></select>
+                </label>
+                <label class="item item-input item-select">
+                    <span class="input-label">预约事项类型</span>
+                    <select id="yysxlx" multiple="multiple">
+                    </select>
+                </label>
+                <div class="item item-input-inset item-select" style="height:49px;">
+                    <label class="item-input" style="min-width: 300px">
+                        <span class="input-label" style="margin-left: -12px">预约日期</span>
+                        <input ng-model="yyfw.yyrq" type="date" ng-blur="checkTime()">
+                    </label>
+                    <select ng-model="yyfw.mryysj" ng-options="yysj.FWSJ for yysj in yysj track by yysj.CXDM"></select>
+                </div>
+                <label class="item item-input">
+                    <span class="input-label">具体业务描述</span>
+                    <textarea rows="6" ng-model="yyfw.jtywms" type="text" placeholder="具体业务描述"></textarea>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">备注信息</span>
+                    <input ng-model="yyfw.bzxx" type="text" placeholder="备注信息">
+                </label>
+                <br/>
+                <div class="" style="margin-left: 30%;">
+                    <button class="button  button-stable" ng-click="clear();"  ng-disabled="">清空</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="button  button-positive"  ng-click="tijiao()"  ng-disabled="">提交</button>
+                </div>
+        </div>
+    </ion-content>
+</ion-view>

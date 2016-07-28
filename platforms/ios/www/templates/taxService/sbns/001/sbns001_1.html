@@ -1,0 +1,34 @@
+<ion-view title="个税12万" cache-view="false">
+	<ion-nav-buttons side="left">
+		<button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+	</ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="shenbao()" ng-disabled="canShenBao">申&nbsp;报</button>
+  </ion-nav-buttons>
+	<ion-content>
+    <ion-refresher on-refresh="reLoadPageList()" pulling-text="下拉更新" refreshing-text=""  spinner="ios"></ion-refresher>
+      <div style="text-align: center;margin-top: 10px;">
+        <h4>已申报税款状态</h4>
+      </div>
+      <ion-list>
+        <ion-item collection-repeat="item in sbList" style="padding: 0px;">
+            <ion-item class="item-input" style="padding: 0px;">
+              <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">提交时间</div>
+              <div class="col col-75" style="text-align: center" >{{item.tjsj}}</div>
+            </ion-item>
+            <ion-item class="item-input" style="padding: 0px;">
+              <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">状态</div>
+              <div class="col col-75" style="text-align: center" >{{item.ztmc}}</div>
+            </ion-item>
+            <ion-item class="item-input" style="padding: 0px;border-bottom-width: 5px;">
+              <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">操作</div>
+              <div class="col col-75" style="text-align: center" >
+                <a href="#" ng-click="openDetail(item.pzxh)" class="myhref">查&nbsp;&nbsp;看</a>&nbsp;&nbsp;
+                <a href="#" ng-if="item.ztmc=='扣款失败'" ng-click="payAgain(item.pzxh)" class="myhref">扣&nbsp;&nbsp;款</a>&nbsp;&nbsp;
+                <a href="#" ng-if="item.ztmc=='扣款失败'" ng-click="deleteRecord(item.pzxh)" class="myhref">删&nbsp;&nbsp;除</a>
+              </div>
+            </ion-item>
+        </ion-item>
+      </ion-list>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,24 @@
+<ion-view title="本月应申报" cache-view="false">
+	<ion-nav-buttons side="left">
+		<button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+	</ion-nav-buttons>
+	<ion-content>
+    <ion-refresher on-refresh="reLoadSbList()" pulling-text="下拉更新" refreshing-text=""  spinner="ios"></ion-refresher>
+		 <ion-list>
+        <ion-item class="item-input item-divider">
+          <span class="input-label">当前企业：</span>
+          {{sbns002_currQy.MC}}
+        </ion-item>
+       <ion-item collection-repeat="item in wsbList" style="padding: 0px;" ng-click="shenbao(item.SB_DM,item.SSQ_QSRQ,item.SSQ_ZZRQ)">
+           <ion-item class="item-input" style="padding: 0px;">
+             <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">社保代码</div>
+             <div class="col col-75" style="text-align: center" ><a href="#" class="myhref">{{item.SB_DM}}</a></div>
+           </ion-item>
+           <ion-item class="item-input" style="padding: 0px;border-bottom-width: 5px;">
+             <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">所属时间</div>
+             <div class="col col-75" style="text-align: center" >{{item.SSQ_QSRQ}}~{{item.SSQ_ZZRQ}}</div>
+           </ion-item>
+       </ion-item>
+       </ion-list>
+	</ion-content>
+</ion-view>

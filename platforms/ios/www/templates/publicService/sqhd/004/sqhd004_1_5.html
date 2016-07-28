@@ -1,0 +1,55 @@
+<ion-view view-title="查询回复">
+  <ion-nav-buttons side="left">
+      <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-content>
+      <div class="list">
+          <div ng-if="cx_if">
+              <label class="item item-input">
+                  <span class="input-label">受理编号</span>
+                  <input ng-model="jzxx_slbh" type="text" placeholder="受理编号">
+              </label>
+              <label class="item item-input">
+                  <span class="input-label">查询码</span>
+                  <input ng-model="jzxx_cxm" type="text" placeholder="查询码">
+              </label>
+              <div class="item" align="center">
+                  <a class="button button-positive button-outline" ng-click="cxhf_cx()">查询</a>
+              </div>
+          </div>
+          <div ng-if="jzxx_cxhf_if">
+              <div class="item item-divider" align="center">
+                  <h2>详细信息</h2>
+              </div>
+              <div class="item item-text-wrap">
+                  <div class="item"><span style="float: left;"><strong>姓名</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.vc_username =='' ? '&nbsp;':jzxx_cxhf_con.vc_username}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>联系电话</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.vc_relationphone =='' ? '&nbsp;':jzxx_cxhf_con.vc_relationphone}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>手机号码</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.vc_mobilephone=='' ? '&nbsp;' : jzxx_cxhf_con.vc_mobilephone}}</p></div>
+                  <div class="item"><span><strong>联系地址</strong></span><p>{{jzxx_cxhf_con.vc_relationaddr=='' ? '&nbsp;' : jzxx_cxhf_con.vc_relationaddr}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>EMAIL</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.vc_email=='' ? '&nbsp;' : jzxx_cxhf_con.vc_email}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>邮政编码</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.vc_zipcode=='' ? '&nbsp;' : jzxx_cxhf_con.vc_zipcode}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>证件类型</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.vc_paperstype=='' ? '&nbsp;' : jzxx_cxhf_con.vc_paperstype}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>性别</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.vc_sex =='' ? '&nbsp;' : jzxx_cxhf_con.vc_sex}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>证件号码</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.vc_papersnumber =='' ? '&nbsp;' : jzxx_cxhf_con.vc_papersnumber}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>年龄</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.i_age=='' ? '&nbsp;': jzxx_cxhf_con.i_age}}</p></div>
+                  <div class="item"><span><strong>标题</strong></span><p>{{jzxx_cxhf_con.title}}</p></div>
+                  <div class="item"><span><strong>内容</strong></span><p>{{jzxx_cxhf_con.content}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>愿意公开</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.b_wishpublic == '1' ? '愿意' : '不愿意'}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>提交时间</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.dt_sendtime}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>办件编号</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.vc_mailnumber}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>办件分类</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.vc_mailpropertyname =='' ? '&nbsp;':jzxx_cxhf_con.vc_mailpropertyname}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>提交对象</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.vc_targetgroup}}</p></div>
+              </div>
+              <div class="item item-divider" align="center">
+                  <h2>处理情况</h2>
+              </div>
+              <div class="item item-text-wrap">
+                  <div class="item"><span style="float: left;"><strong>处理状态</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.state=='' ? '&nbsp;':jzxx_cxhf_con.state}}</p></div>
+                  <div class="item"><span><strong>答复内容</strong></span><p></p></div>
+                  <div class="item"><span style="float: left;"><strong>答复单位</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.replay=='' ? '&nbsp;':jzxx_cxhf_con.replay}}</p></div>
+                  <div class="item"><span style="float: left;"><strong>答复时间</strong></span><p style="margin-left: 50%">{{jzxx_cxhf_con.replaytime=='' ? '&nbsp;':jzxx_cxhf_con.replaytime}}</p></div>
+              </div>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>

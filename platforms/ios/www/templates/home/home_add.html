@@ -1,0 +1,18 @@
+<ion-view title="更多功能" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear icon ion-navicon" ng-click="data.showReorder = !data.showReorder"></button>
+    </ion-nav-buttons>
+    <ion-content padding="false" class="has-header" delegate-handle="mainScroll" has-bouncing="false" >
+        <ion-list show-reorder="data.showReorder">
+
+            <ion-item ng-repeat="item in allModules" item="item" class="item-remove-animate" ng-click = "openDetail(item)" >
+                {{ item.name}}
+                <ion-reorder-button class="{{item.mode}}" ng-click="addItem(item)" on-reorder="moveItem(item, $fromIndex, $toIndex)">
+                </ion-reorder-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

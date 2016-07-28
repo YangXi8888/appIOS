@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <!--ionic css-->
+    <link rel="stylesheet" type="text/css" href="lib/ionic/css/ionic.css">
+    <!--footable css-->
+    <link rel="stylesheet" type="text/css" href="lib/footable/css/footable.core.css">
+    <!--common css-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- include ionic/angularjs js -->
+    <script type="text/javascript" src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- include reference/jquery-2.1.4.min.js -->
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <!-- inculde reference/jquery.json.min.js -->
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <!--include ng-cordova.js-->
+    <script type="text/javascript" src="ng-cordova.js"></script>
+    <!-- include cordova.js-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <!-- include your app's js -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
+    <!--common js-->
+    <script type="text/javascript" src="js/EtaxCal.js"></script>
+    <script type="text/javascript" src="js/sfzjy.js"></script>
+    <script type="text/javascript" src="js/validator.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
+    <script type="text/javascript" src="js/appStorage.js"></script>
+    <script type="text/javascript" src="js/aes.js"></script>
+    <!--<script type="text/javascript" src="js/pad-iso10126.js"></script>-->
+
+    <!--settings js-->
+    <script type="text/javascript" src="templates/settings/settings.js"></script>
+    <!--footable js-->
+    <script type="text/javascript" src="lib/footable/js/footable.js"></script>
+    <!--12w js-->
+    <script type="text/javascript" src="templates/taxService/sbns/001/sbns001.js"></script>
+    <!--社保申报js-->
+    <script type="text/javascript" src="templates/taxService/sbns/002/sbns002.js"></script>
+    <!--税企互动-->
+    <!--在线咨询js-->
+    <script type="text/javascript" src="templates/publicService/sqhd/001/sqhd001.js"></script>
+    <!--涉税通知js-->
+    <script type="text/javascript" src="templates/publicService/sqhd/002/sqhd002.js"></script>
+    <!--纳税人学堂-->
+    <script type="text/javascript" src="templates/publicService/sqhd/003/sqhd003.js"></script>
+    <!--投诉举报js-->
+    <script type="text/javascript" src="templates/publicService/sqhd/004/sqhd004.js"></script>
+    <!--预约服务js-->
+    <script type="text/javascript" src="templates/publicService/sqhd/005/sqhd005.js"></script>
+    <!--地税微信-->
+    <script type="text/javascript" src="templates/publicService/sqhd/006/sqhd006.js"></script>
+    <!--地税微博-->
+    <script type="text/javascript" src="templates/publicService/sqhd/007/sqhd007.js"></script>
+    <!--我的南京认证-->
+    <script type="text/javascript" src="templates/publicService/sqhd/008/sqhd008.js"></script>
+    <!--12366知识库 js-->
+    <script type="text/javascript" src="templates/publicService/zczn/001/zczn001.js"></script>
+    <!--涉税信息月报 js-->
+    <script type="text/javascript" src="templates/publicService/zczn/002/zczn002.js"></script>
+    <!--优惠须知 js-->
+    <script type="text/javascript" src="templates/publicService/zczn/003/zczn003.js"></script>
+    <!--查询服务js-->
+    <!--企业信息查询js-->
+    <script type="text/javascript" src="templates/taxService/cxfw/001/cxfw001.js"></script>
+    <!--我的税收js-->
+    <script type="text/javascript" src="templates/taxService/cxfw/002/cxfw002.js"></script>
+    <!--发票验证js-->
+    <script type="text/javascript" src="templates/taxService/cxfw/003/cxfw003.js"></script>
+    <!--社保费查询js-->
+    <script type="text/javascript" src="templates/taxService/cxfw/004/cxfw004.js"></script>
+    <!--纳税信用评价js-->
+    <script type="text/javascript" src="templates/taxService/cxfw/005/cxfw005.js"></script>
+    <!--办税导航js-->
+    <!--办税日历js-->
+    <script type="text/javascript" src="templates/publicService/bsdh/001/bsdh001.js"></script>
+    <!--办税时间js-->
+    <script type="text/javascript" src="templates/publicService/bsdh/002/bsdh002.js"></script>
+    <!--办税地图js-->
+    <script type="text/javascript" src="templates/publicService/bsdh/003/bsdh003.js"></script>
+    <!--办税厅工作状态js-->
+    <script type="text/javascript" src="templates/publicService/bsdh/004/bsdh004.js"></script>
+    <!--税款计算js-->
+    <script type="text/javascript" src="templates/publicService/bsdh/005/bsdh005.js"></script>
+    <!--税种税率js-->
+    <script type="text/javascript" src="templates/publicService/bsdh/006/bsdh006.js"></script>
+    <!--办税指南js-->
+    <script type="text/javascript" src="templates/publicService/bsdh/008/bsdh008.js"></script>
+
+    <!--自然人登记js-->
+    <script type="text/javascript" src="templates/taxService/ssbl/001/ssbl001.js"></script>
+    <!--减免税申请js-->
+    <script type="text/javascript" src="templates/taxService/ssbl/002/ssbl002.js"></script>
+    <!--城镇土地减免税申请js-->
+    <script type="text/javascript" src="templates/taxService/ssbl/003/ssbl003.js"></script>
+    <!--手续费结报js-->
+    <script type="text/javascript" src="templates/taxService/ssbl/005/ssbl005.js"></script>
+    <!--联系方式变更js-->
+    <script type="text/javascript" src="templates/taxService/ssbl/006/ssbl006.js"></script>
+    <!--个人所得税自行纳税申报表（A表）js-->
+    <script type="text/javascript" src="templates/taxService/sbns/003/sbns003.js"></script>
+   <!--百度地图-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=gRG2aD5VZqFts53OTUfzn1VS"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <script type="text/javascript" src="http://api.map.baidu.com/components?ak=gRG2aD5VZqFts53OTUfzn1VS&v=1.0"></script>
+
+
+</head>
+<body ng-app="starter">
+   <ion-nav-bar class="bar-positive" align-title="center">
+       <!--<ion-nav-back-button></ion-nav-back-button>-->
+   </ion-nav-bar>
+
+  <ion-nav-view></ion-nav-view>
+
+</body>
+</html>

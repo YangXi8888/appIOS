@@ -1,0 +1,195 @@
+<ion-view title="企业信息查询" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear icon ion-ios-loop-strong" ng-click="exchangeQy()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list calss="padding">
+            <ion-item class="item-input item-divider">
+                <span class="input-label">当前企业：</span>{{dqqy.MC}}
+            </ion-item>
+            <ion-item class="item-icon-right" ng-click="openJDModal();jdxxcx();" >
+                鉴定查询
+                <i class="icon ion-ios-arrow-down"></i>
+            </ion-item>
+            <ion-item class="item-icon-right" ng-click="openDJModal();djxxcx();" >
+                登记查询
+                <i class="icon ion-ios-arrow-down"></i>
+            </ion-item>
+            <ion-item class="item-icon-right" ng-click="openBYSBQKModal();bysbtj();">
+                本月申报情况统计
+                <i class="icon ion-ios-arrow-down"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+<script id="jd.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-positive item-button-left" align-title="center">
+            <a class="button button-clear icon ion-ios-close-outline" ng-click="closeJDModal();" ></a>
+            <h1 class="title">鉴定查询</h1>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list class="padding">
+                <ion-item ng-repeat="item in jdList" style="padding: 0px;">
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">征收项目</div>
+                        <div class="col col-67" style="text-align: center" >{{item.ZSXM_MC}}</div>
+                    </ion-item>
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">征收品目</div>
+                        <div class="col col-67" style="text-align: center" >{{item.ZSPM_MC}}</div>
+                    </ion-item>
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">鉴定有效期</div>
+                        <div class="col col-67" style="text-align: center" >{{item.HD_QSRQ}}至{{item.HD_ZZRQ}}</div>
+                    </ion-item>
+                    <div style="height: 10px;background-color: #f5f5f5"></div>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>
+</script>
+<script id="dj.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-positive item-button-left" align-title="center">
+            <a class="button button-clear icon ion-ios-close-outline" ng-click="closeDJModal();"></a>
+            <h1 class="title">登记查询</h1>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list class="padding">
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">税务登记类型</span>
+                        <input type="text" ng-model="djList.SWDJLX_MC" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">纳税人识别号</span>
+                        <input type="text" ng-model="djList.NSRSBM" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">纳税人名称</span>
+                        <input type="text" ng-model="djList.NSR_MC" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">登记注册类型</span>
+                        <input type="text" ng-model="djList.DJZCLX_MC" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">组织机构代码</span>
+                        <input type="text" ng-model="djList.ZZJGTYDM" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">批准设立证明或文件号</span>
+                        <input type="text" ng-model="djList.PZWH" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">开业(设立)日期</span>
+                        <input type="text" ng-model="djList.KYSLRQ" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">生产经营期限起</span>
+                        <input type="text" ng-model="djList.SCJYQQ" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">生产经营期限止</span>
+                        <input type="text" ng-model="djList.SCJYQZ" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">证照名称</span>
+                        <input type="text" ng-model="djList.ZZLB_MC" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">证照号码</span>
+                        <input type="text" ng-model="djList.ZZHM" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">注册地址</span>
+                        <input type="text" ng-model="djList.ZCDZ" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">注册地邮政编码</span>
+                        <input type="text" ng-model="djList.ZCDZYB" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">注册地联系电话</span>
+                        <input type="text" ng-model="djList.ZCDLXDH" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">生产经营地址</span>
+                        <input type="text" ng-model="djList.SJJYDZ" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">生产地邮政编码</span>
+                        <input type="text" ng-model="djList.SJJYDZYB" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">生产地联系电话</span>
+                        <input type="text" ng-model="djList.SCJYDLXDH" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">核算方式</span>
+                        <input type="text" ng-model="djList.HSFS_MC" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">单位性质</span>
+                        <input type="text" ng-model="djList.DWXZ_MC" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">从业人数</span>
+                        <input type="text" ng-model="djList.CYRS" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">其中外籍人数</span>
+                        <input type="text" ng-model="djList.WJRYRS" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">网站网址</span>
+                        <input type="text" ng-model="djList.WZ" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">适用会计制度</span>
+                        <input type="text" ng-model="djList.QYKJZD_MC" readonly="readonly" style="text-align: center">
+                    </ion-item>
+            </ion-list>
+            <div class="padding">
+                经营范围：<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{djList.JYFWZY}}
+            </div>
+        </ion-content>
+    </ion-modal-view>
+</script>
+<script id="bysbqk.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-positive item-button-left" align-title="center">
+            <a class="button button-clear icon ion-ios-close-outline" ng-click="closeBYSBQKModal();"></a>
+            <h1 class="title">本月申报情况统计</h1>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list class="padding">
+                <ion-item ng-repeat="item in byysbList" style="padding: 0px;">
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;">申报表种类</div>
+                        <div class="col col-67" style="text-align: center" >{{item.PZZL_MC}}</div>
+                    </ion-item>
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">申报时间</div>
+                        <div class="col col-67" style="text-align: center" >{{item.LR_SJ}}</div>
+                    </ion-item>
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">申报金额</div>
+                        <div class="col col-67" style="text-align: center" >{{item.YBTSEHDJ_JE}}</div>
+                    </ion-item>
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">申报状态</div>
+                        <div class="col col-67" style="text-align: center" >{{item.ZT_MC}}</div>
+                    </ion-item>
+                    <div style="height: 10px;background-color: #f5f5f5"></div>
+                </ion-item>
+                <ion-item class="item-avatar" style="text-align: right">
+                   合计：{{byysbHj}}
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>
+</script>

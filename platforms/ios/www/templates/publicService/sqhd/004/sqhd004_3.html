@@ -1,0 +1,37 @@
+<ion-view view-title="投诉举报">
+  <ion-nav-buttons side="left">
+      <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+      <button class="button button-clear icon ion-navicon-round" ng-click="openFpwzPopover($event)"></button>
+  </ion-nav-buttons>
+  <ion-content>
+      <div class="list card">
+          <div class="item item-divider">
+              <h2>发票违章举报说明>></h2>
+          </div>
+          <div class="item item-text-wrap">
+              <div>
+                一、受理举报范围<br />
+                　　						主要受理对江苏省地方税务局管辖范围内虚开、伪造、非法提供、非法取得发票的行为的举报。
+              </div>
+              <div>
+                二、举报联系方式<br />
+                　　1、举报中心电话：(025)83633545;<br />
+      　　 					2、邮编：210029;<br />
+      　　 					3、地址：南京市上海路46号江苏省地方税务局税收违法案件举报中心。
+              </div>
+              <div align="center">
+                  <button class="button button-outline button-positive button-small" ng-click="wyjb()">我要举报</button>
+              </div>
+          </div>
+          <div class="item item-divider">
+              举报列表>>
+          </div>
+          <div class="item item-icon-right assertive" ng-repeat="lb in lb">
+              <i class="icon ion-close icon-accessory" ng-click="jblb_delete(lb.id,lb.code)"></i>
+              <span ng-click="jblb_xq(lb.id,lb.code)">{{lb.title}}</span>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>

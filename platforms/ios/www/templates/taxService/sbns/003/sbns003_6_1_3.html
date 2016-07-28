@@ -1,0 +1,62 @@
+<ion-view view-title="该栏仅由投资者纳税人填写">
+  <ion-nav-buttons side="left">
+      <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-content>
+      <div class="list" id="tzzList">
+          <label class="item item-input item-select">
+              <span class="input-label">投资者类型</span>
+              <select multiple="multiple" id="tzzlx">
+                  <option value="1">个体工商户</option>
+                  <option value="2">个人独资企业投资者</option>
+                  <option value="3">合伙企业合伙人</option>
+                  <option value="4">承包、承租经营者</option>
+                  <option value="5">股东</option>
+                  <option value="6">其他投资者</option>
+              </select>
+          </label>
+          <div class="item-divider" align="center">被投资单位信息</div>
+          <label class="item item-input">
+              <span class="input-label">名称</span>
+              <input  type="text" ng-model="tzvo.btzdwmc" ng-disabled="true" placeholder="名称" style="padding-right:0px">
+          </label>
+          <label class="item item-input">
+              <span class="input-label">扣缴义务人编码</span>
+              <input  type="text"  ng-model="tzvo.btzdwswglm" ng-disabled="true" placeholder="扣缴义务人编码" style="padding-right:0px">
+          </label>
+          <label class="item item-input">
+              <span class="input-label">地址</span>
+              <input  type="text" ng-model="tzvo.btzdwdz" ng-disabled="true" placeholder="地址" style="padding-right:0px">
+          </label>
+          <label class="item item-input">
+              <span class="input-label">邮政编码</span>
+              <input  type="number" ng-model="tzvo.btzdwyzbm" ng-disabled="true" placeholder="邮政编码" maxlength="6" style="padding-right:0px">
+          </label>
+          <label class="item item-input item-select">
+              <span class="input-label">登记注册类型</span>
+              <select ng-model="tzznsr.mrZclx" ng-options="zclx.MC for zclx in zclx track by zclx.DJZCLX_DM"></select>
+          </label>
+          <label class="item item-input item-select">
+              <span class="input-label">行业</span>
+              <select ng-model="tzznsr.mrJyhyxl" ng-options="jyhyxl.MC for jyhyxl in jyhyxl track by jyhyxl.JYHYXL_DM"></select>
+          </label>
+          <label class="item item-input item-select">
+              <span class="input-label">所得税征收方式</span>
+              <select ng-model="tzvo.btzdwsdszsfsdm">
+                  <option value="">请选择</option>
+                  <option value="1" selected="selected">查账征收</option>
+                  <option value="2">境核定征收</option>
+              </select>
+          </label>
+          <div class="item-divider" align="center">以下由股东及其他投资者填写</div>
+          <label class="item item-input">
+              <span class="input-label">公司股本(投资)总额</span>
+              <input  type="number" ng-model="tzvo.gstzje" cal="true" ng-disabled="true" placeholder="公司股本总额" ng-blur="initCal()">
+          </label>
+          <label class="item item-input">
+              <span class="input-label">个人股本(投资)额</span>
+              <input  type="number" ng-model="tzvo.grtzje" cal="true" ng-disabled="true" placeholder="个人股本额" ng-blur="initCal()">
+          </label>
+      </div>
+  </ion-content>
+</ion-view>

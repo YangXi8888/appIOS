@@ -1,0 +1,30 @@
+<ion-view view-title="该栏仅由有境外所得纳税人填写">
+  <ion-nav-buttons side="left">
+      <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-content>
+      <div class="list">
+          <div class="item-divider" align="center">经常居住地(户籍所在地)</div>
+          <label class="item item-input item-select">
+              <span class="input-label">市</span>
+              <select ng-model="jwsdnsr.mrJws" ng-options="jws.MC for jws in jws track by jws.XZQHDS_DM" ng-change="changeS()"></select>
+          </label>
+          <label class="item item-input item-select">
+              <span class="input-label">县(区)</span>
+              <select ng-model="jwsdnsr.mrJwxq" ng-options="jwxq.MC for jwxq in jwxq track by jwxq.XZQHXQ_DM" ng-change="changeXq()"></select>
+          </label>
+          <label class="item item-input item-select">
+              <span class="input-label">街道</span>
+              <select ng-model="jwsdnsr.mrJwjd" ng-options="jwjd.MC for jwjd in jwjd track by jwjd.XZJD_DM"></select>
+          </label>
+          <label class="item item-input">
+              <span class="input-label">联系地址</span>
+              <textarea rows="6" placeholder="联系地址" ng-model="jwvo.lxdz"></textarea>
+          </label>
+          <label class="item item-input">
+              <span class="input-label">邮编</span>
+              <input  type="number" ng-model="jwvo.yzdm" placeholder="邮编" maxlength="6" style="padding-right:0px">
+          </label>
+      </div>
+  </ion-content>
+</ion-view>

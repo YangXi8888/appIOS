@@ -1,0 +1,177 @@
+<ion-view view-title="联系方式变更" cache-view="false">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear icon ion-ios-loop-strong" ng-click="exchangeQY()"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-refresher on-refresh="reLoadPageList()" pulling-text="下拉刷新" refreshing-text=""  spinner="ios"></ion-refresher>
+    <ion-list>
+      <ion-item class="item-input item-divider">
+        <span class="input-label">当前企业：</span>
+        {{ssbl006_currentQY.MC}}
+      </ion-item>
+      <ion-item class="item-icon-right" ng-click="lxfsbgsq()">
+        联系方式变更申请表
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item collection-repeat="item in ztList" style="padding: 0px;">
+        <ion-item class="item-input" style="padding: 0px;">
+          <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">提交时间</div>
+          <div class="col col-75" style="text-align: center">{{item.sqsj}}</div>
+        </ion-item>
+        <ion-item class="item-input" style="padding: 0px;">
+          <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">状态</div>
+          <div class="col col-75" style="text-align: center">{{item.zt}}</div>
+        </ion-item>
+        <ion-item class="item-input" style="padding: 0px;border-bottom-width: 5px;">
+          <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">操作</div>
+          <div class="col col-75" style="text-align: center">
+            <a href="#" class="myhref" ng-click="queryData(item.lsh)">查&nbsp;&nbsp;看</a>&nbsp;&nbsp;
+            <a href="#" class="myhref" ng-click="querySlyj(item.lsh,item.bbzt,item.lcslh)">受理意见</a>&nbsp;&nbsp;
+          </div>
+        </ion-item>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+<script id="mxInfo.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar-positive item-button-right">
+      <h1 class="title" style="text-align: center">联系方式变更申请信息</h1>
+      <a class="button button-clear icon ion-ios-close-outline" ng-click="closeXyModal();"></a>
+    </ion-header-bar>
+    <ion-content>
+      <div class="card">
+        <div class="item item-text-wrap">
+          <div class="ssbl006_div">
+            <label>纳税人名称：{{ssbl006_currentQY.MC}}</label>
+          </div>
+          <div class="ssbl006_div">
+            <label>税务管理码：{{ssbl006_currentQY.SWGLM}}</label>
+          </div>
+        </div>
+      </div>
+      <div style="margin:10px;">
+        <span style="color:#ff0000;">*</span>如需修改或填写某条记录，请去掉右侧选项中的“√”
+      </div>
+      <div class="card">
+        <div class="item item-text-wrap">
+          <div class="ssbl006_div">
+            <label>财务负责人固定电话</label>
+            <input class="ssbl006_div input_text" type="text" name="inputValues" value="{{jbxx.cwfzr_gddh}}"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>财务负责人移动电话</label>
+            <input type="text" name="inputValues" value="{{jbxx.cwfzr_yddh}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员1姓名</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry1_xm}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员1证件种类</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry1_zjzl}}" class="ssbl006_div input_text"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员1证件号码</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry1_zjhm}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员1固定电话</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry1_gddh}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员1移动电话</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry1_yddh}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员2姓名</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry2_xm}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员2证件种类</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry2_zjzl}}" class="ssbl006_div input_text"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员2证件号码</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry2_zjhm}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员2固定电话</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry2_gddh}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员2移动电话</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry2_yddh}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员3姓名</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry3_xm}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员3证件种类</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry3_zjzl}}" class="ssbl006_div input_text"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员3证件号码</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry3_zjhm}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员3固定电话</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry3_gddh}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>办税人员3移动电话</label>
+            <input type="text" name="inputValues" value="{{jbxx.bsry3_yddh}}" class="ssbl006_div input_text"/>
+            <input type="checkbox" name="checkboxs" checked="checked" class="ssbl006_div input_checkbox"/>
+          </div>
+          <div class="ssbl006_div">
+            <label>请填写申请理由</label>
+            <textarea style="width:100%;border:1px solid #9e9e9e;resize:none;" rows="8" readonly="readonly">{{jbxx.sqly}}</textarea>
+          </div>
+        </div>
+      </div>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+<script id="slyj.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar-positive item-button-right">
+      <h1 class="title" style="text-align: center">受理意见</h1>
+      <a class="button button-clear icon ion-ios-close-outline" ng-click="closeSlyjModal();"></a>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item collection-repeat="item in ssbl006_slyj" style="padding: 0px;">
+      <div class="list card">
+        <div class="item item-body" id="slyj_infos">
+          <p>办理人员名称：<span>{{item.blrymc}}</span></p>
+          <p>办理税务机关员名称：<span>{{item.blswjgmc}}</span></p>
+          <p>录入时间：<span>{{item.lrsj}}</span></p>
+          <p>审批依据：<span>{{item.shspyj}}</span></p>
+          <p>环节名称：<span>{{item.wfhdmc}}</span></p>
+        </div>
+      </div>
+          </ion-item>
+        </ion-list>
+    </ion-content>
+  </ion-modal-view>
+</script>

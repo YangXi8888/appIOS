@@ -1,0 +1,249 @@
+<ion-view view-title="公共服务">
+
+   <div class="bar bar-subheader">
+       <ion-scroll direction="x" scrollbar-x="false" >
+           <div class="button-bar sub_header_list" id="sub_header_list">
+               <a class="button button-clear sub_button_select ion-loop" ng-click="changeTab(0);">&nbsp;税企互动</a>
+               <a class="button button-clear ion-navicon-round" ng-click="changeTab(1);">&nbsp;政策指南</a>
+               <a class="button button-clear ion-help-buoy" ng-click="changeTab(2);">&nbsp;办税导航</a>
+           </div>
+       </ion-scroll>
+   </div>
+    <ion-content  class="has-subheader" style="margin-top: 6px;">
+        <div class="first-list">
+                <ion-slide-box does-continue="true" auto-play="false" show-pager="false" delegate-handle="publicSlideBox"  on-slide-changed="slideChange(index)" id="publicSlideBox">
+                    <ion-slide >
+                        <!--税企互动-->
+                           <ion-view>
+                               <ion-content>
+                                    <ion-item class="item-thumbnail-left" ng-click="showlink('sqhd005')">
+                                         <img src="img/ggfw_yyfw.png">
+                                         <div class="body_pad item-body">预约服务</div>
+                                         <div class="body_pad item-body item-note ">为您提供当场办结涉税事项的预约办理服务</div>
+                                    </ion-item>
+                                    <ion-item class="item-thumbnail-left" ng-click="tellPhone()">
+                                        <img src="img/ggfw_dhzx.png">
+                                        <div class="body_pad item-body">电话咨询</div>
+                                        <div class="body_pad item-body item-note ">直接拨打“12366热线电话”的绿色通道，为您提供涉税事项的热线电话咨询</div>
+                                    </ion-item>
+                                    <ion-item class="item-thumbnail-left" ng-click="showlink('sqhd_zxzx')">
+                                        <img src="img/ggfw_zxzx.png">
+                                        <div class="body_pad item-body">在线咨询</div>
+                                        <div class="body_pad item-body item-note ">手机端的“12366网上在线咨询”，采用人机对话的方式，为您提供网上税收政策在线咨询，解答您的涉税疑问</div>
+                                    </ion-item>
+                                    <ion-item class="item-thumbnail-left" ng-click="showlink('sqhd_sstz')">
+                                        <img src="img/ggfw_sstz.png">
+                                        <div class="body_pad item-body">涉税通知</div>
+                                        <div class="body_pad item-body item-note ">通过手机端，为您提供最新的纳税公告，以及税务机关最新工作动态</div>
+                                    </ion-item>
+                                   <ion-item class="item-thumbnail-left" ng-click="showlink('sqhd_tsjb')">
+                                       <img src="img/ggfw_tsjb.png">
+                                       <div class="body_pad item-body">投诉举报</div>
+                                       <div class="body_pad item-body item-note ">规范税收服务、依法打击税收违法行为，在手机端为您提供办税过程中的诉求服务</div>
+                                   </ion-item>
+                                    <ion-item class="item-thumbnail-left" ng-click="showlink('sqhd_nsrxt')">
+                                        <img src="img/ggfw_nsrxt.png">
+                                        <div class="body_pad item-body">纳税人学堂</div>
+                                        <div class="body_pad item-body item-note ">为您提供即将开展的纳税人学堂培训通知</div>
+                                    </ion-item>
+                                    <ion-item class="item-thumbnail-left" ng-click="showlink('sqhd_dswx')">
+                                        <img  src="img/ggfw_dswx.png">
+                                        <div class="body_pad item-body">地税微信</div>
+                                        <div class="body_pad item-body item-note ">在手机端提供地税微信的链接，方便关注微信公众号</div>
+                                    </ion-item>
+                                    <ion-item class="item-thumbnail-left" ng-click="showlink('sqhd_dswb')">
+                                        <img  src="img/ggfw_dswb.png">
+                                        <div class="body_pad item-body">地税微博</div>
+                                        <div class="body_pad item-body item-note ">在手机端提供地税微博的链接，方便关注微博帐号</div>
+                                    </ion-item>
+                                    <ion-item class="item-thumbnail-left" ng-click="showlink('sqhd_wdnjrz')" id="wdnjrz" ng-if="wdnjrzIf">
+                                         <img  src="img/ggfw_wdnjrz.png">
+                                         <div class="body_pad item-body">我的南京认证</div>
+                                         <div class="body_pad item-body item-note ">在手机端提供“我的南京”认证功能 </div>
+                                    </ion-item>
+                                   <!--<div class="row" style="padding: 0px;">-->
+                                       <!--<div class="col col-50" style="padding: 0px;">-->
+                                           <!--<ion-item class="item-thumbnail-left" ng-click="showlink('sqhd_dswx')" style="height: 100px">-->
+                                               <!--<img src="img/ggfw_dswx.png">-->
+                                               <!--<div class=" item-body">地税微信</div>-->
+                                           <!--</ion-item>-->
+                                       <!--</div>-->
+                                       <!--<div class="col col-50" style="padding: 0px;">-->
+                                           <!--<ion-item class="item-thumbnail-left" ng-click="showlink('sqhd_dswb')" style="height: 100px">-->
+                                               <!--<img src="img/ggfw_dswb.png">-->
+                                               <!--<div class=" item-body">地税微博</div>-->
+                                           <!--</ion-item>-->
+                                       <!--</div>-->
+                                   <!--</div>-->
+                               </ion-content>
+                           </ion-view>
+                            <!--<div class="row row-h-4">-->
+                                <!--<div class="col col-33 button" ng-click="tellPhone()">-->
+                                    <!--<img src="img/public_dhzx.png">-->
+                                <!--</div>-->
+                                <!--<div class="col col-33 button" ng-click="showlink('sqhd_zxzx')">-->
+                                    <!--<img src="img/public_zxzx.png">-->
+                                <!--</div>-->
+                                <!--<div class="col col-33 button" ng-click="showlink('sqhd_sstz')">-->
+                                    <!--<img src="img/public_sstz.png">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="row row-h-4" >-->
+                                <!--<div class="col col-33 button" ng-click="showlink('sqhd_nsrxt')">-->
+                                    <!--<img src="img/public_nsrxt.png">-->
+                                <!--</div>-->
+                                <!--<div class="col col-33 button" ng-click="showlink('sqhd_tsjb')">-->
+                                    <!--<img src="img/public_tsjb.png">-->
+                                <!--</div>-->
+                                <!--<div class="col col-33 button" ng-click="showlink('sqhd_yyfw')">-->
+                                    <!--<img src="img/public_yyfw.png">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="row row-h-4">-->
+                                <!--<div class="col col-33 button" ng-click="showlink('sqhd_dswx')">-->
+                                    <!--<img src="img/public_dswx.png">-->
+                                <!--</div>-->
+                                <!--<div class="col col-33 button" ng-click="showlink('sqhd_dswb')">-->
+                                    <!--<img src="img/public_dswb.png">-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                    </ion-slide>
+                    <ion-slide>
+                        <!--政策指南-->
+                        <ion-view>
+                            <ion-content>
+                                <ion-item class="item-thumbnail-left" ng-click="showlink('zczn_12366zsk')">
+                                    <img src="img/ggfw_12366zsk.png">
+                                    <div class="body_pad item-body">12366知识库</div>
+                                    <div class="body_pad item-body item-note ">为您提供的涉税事项知识库查询功能，全方面的了解涉税事项知识点</div>
+                                </ion-item>
+                                <ion-item class="item-thumbnail-left" ng-click="showlink('zczn_ssxxyb')">
+                                    <img src="img/ggfw_ssyb.png">
+                                    <div class="body_pad item-body">涉税月报</div>
+                                    <div class="body_pad item-body item-note ">为您推送每月《涉税信息月报》，及时了解税收政策的动向</div>
+                                </ion-item>
+                                <ion-item class="item-thumbnail-left" ng-click="showlink('zczn_yhxz')">
+                                    <img src="img/ggfw_yhxz.png">
+                                    <div class="body_pad item-body">优惠须知</div>
+                                    <div class="body_pad item-body item-note ">为您提供税收优惠政策的详细解读,最及时享受办税的优惠</div>
+                                </ion-item>
+                            </ion-content>
+                        </ion-view>
+                        <!--<div>-->
+                            <!--<div class="row row-h-4" >-->
+                                <!--<div class="col col-33 button" ng-click="showlink('zczn_12366zsk')">-->
+                                    <!--<img src="img/public_12366zsk.png">-->
+                                <!--</div>-->
+                                <!--<div class="col col-33 button" ng-click="showlink('zczn_ssyb')">-->
+                                    <!--<img src="img/public_ssyb.png">-->
+                                <!--</div>-->
+                                <!--<div class="col col-33 button" ng-click="showlink('zczn_yhxz')">-->
+                                    <!--<img src="img/public_yhxz.png">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div>
+                            <div class="row row-h-4" >
+                                <div class="col col-33 button" ng-click="showlink('zczn_12366zsk')">
+                                    <img src="img/public_12366zsk.png">
+                                </div>
+                                <div class="col col-33 button" ng-click="showlink('zczn_ssxxyb')">
+                                    <img src="img/public_ssyb.png">
+                                </div>
+                                <div class="col col-33 button" ng-click="showlink('zczn_yhxz')">
+                                    <img src="img/public_yhxz.png">
+                                </div>
+                            </div>
+                        </div>-->
+                    </ion-slide>
+                    <ion-slide>
+                        <!--办税导航-->
+                        <ion-view>
+                            <ion-content>
+                                <ion-item class="item-thumbnail-left" ng-click="showlink('bsdh001')">
+                                    <img src="img/ggfw_bsrl.png">
+                                    <div class="body_pad item-body">办税日历</div>
+                                    <div class="body_pad item-body item-note ">为您提供每月各税种的申报期限查阅功能</div>
+                                </ion-item>
+                                <ion-item class="item-thumbnail-left" ng-click="showlink('bsdh002')">
+                                    <img src="img/ggfw_bssj.png">
+                                    <div class="body_pad item-body">办税时间</div>
+                                    <div class="body_pad item-body item-note ">为您提供全市各办税服务厅工作时间的查询</div>
+                                </ion-item>
+                                <ion-item class="item-thumbnail-left" ng-click="showlink('bsdh003')">
+                                    <img src="img/ggfw_bsdt.png">
+                                    <div class="body_pad item-body">办税地图</div>
+                                    <div class="body_pad item-body item-note ">为您展示全市各办税服务厅的分布图，以及详细地址和导航，便于你就近办理涉税事项</div>
+                                </ion-item>
+                                <ion-item class="item-thumbnail-left" ng-click="showlink('bsdh004')">
+                                    <img src="img/ggfw_bstgzzt.png">
+                                    <div class="body_pad item-body">办税厅工作状态</div>
+                                    <div class="body_pad item-body item-note ">为你展示各办税服务厅工作状态，包括窗口数量，排队等候人数情况等信息，方便您挑选办税服务厅办理涉水事项</div>
+                                </ion-item>
+                                <!--<ion-item class="item-thumbnail-left" ng-click="showlink('bsdh005')">-->
+                                    <!--<img src="img/ggfw_skjs.png">-->
+                                    <!--<div class="body_pad item-body">税款计算</div>-->
+                                    <!--<div class="body_pad item-body item-note ">为您提供多税种的税款计算功能和滞纳金的计算功能，明明白白缴纳放心税</div>-->
+                                <!--</ion-item>-->
+                                <!--<ion-item class="item-thumbnail-left" ng-click="showlink('bsdh006')">-->
+                                    <!--<img src="img/ggfw_szsl.png">-->
+                                    <!--<div class="body_pad item-body">税种税率</div>-->
+                                    <!--<div class="body_pad item-body item-note ">为您提供各税种税目的详细税率</div>-->
+                                <!--</ion-item>-->
+                                <div class="row" style="padding: 0px;height: 106px;">
+                                    <div class="col col-50" style="padding: 0px;">
+                                        <ion-item class="item-thumbnail-left" ng-click="showlink('bsdh005')" >
+                                            <img src="img/ggfw_skjs.png">
+                                            <div class=" item-body" style="padding: 8px;">税款计算</div>
+                                        </ion-item>
+                                    </div>
+                                    <div class="col col-50" style="padding: 0px;">
+                                        <ion-item class="item-thumbnail-left" ng-click="showlink('bsdh006')" >
+                                            <img src="img/ggfw_szsl.png">
+                                            <div class=" item-body" style="padding: 8px;">税种税率</div>
+                                        </ion-item>
+                                    </div>
+                                </div>
+                                <ion-item class="item-thumbnail-left" ng-click="showlink('bsdh008')">
+                                    <img src="img/ggfw_bszn.png">
+                                    <div class="body_pad item-body">办税指南</div>
+                                    <div class="body_pad item-body item-note ">为您提供税务登记、税务认定、申报纳税等涉税事项办理的流程、资料要求、办理时限等等相关的资讯</div>
+                                </ion-item>
+                            </ion-content>
+                        </ion-view>
+                        <!--<div>-->
+                            <!--<div class="row row-h-4" >-->
+                                <!--<div class="col col-33 button" ng-click="showlink('bsdh_bsrl')">-->
+                                    <!--<img src="img/public_bsrl.png">-->
+                                <!--</div>-->
+                                <!--<div class="col col-33 button" ng-click="showlink('bsdh_bssj')">-->
+                                    <!--<img src="img/public_bssj.png">-->
+                                <!--</div>-->
+                                <!--<div class="col col-33 button" ng-click="showlink('bsdh_bsdt')">-->
+                                    <!--<img src="img/public_bsdt.png">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="row row-h-4">-->
+                                <!--<div class="col col-33 button" ng-click="showlink('bsdh_bstgzzt')">-->
+                                    <!--<img src="img/public_bstgzzt.png">-->
+                                <!--</div>-->
+                                <!--<div class="col col-33 button" ng-click="showlink('bsdh_skjs');">-->
+                                    <!--<img src="img/public_skjs.png">-->
+                                <!--</div>-->
+                                <!--<div class="col col-33 button" ng-click="showlink('bsdh_szsl')">-->
+                                    <!--<img src="img/public_szsl.png">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="row row-h-4">-->
+                                <!--<div class="col col-33 button" ng-click="showlink('bsdh_bszn')">-->
+                                    <!--<img src="img/public_bszn.png">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </ion-slide>
+                </ion-slide-box>
+            </div>
+    </ion-content>
+
+</ion-view>

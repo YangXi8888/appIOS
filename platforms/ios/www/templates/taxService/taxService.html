@@ -1,0 +1,235 @@
+<ion-view view-title="办税服务">
+
+	<!--<ion-nav-buttons side="right">
+	<button class="button button-icon icon ion-compose" ng-click="showNewTopicModal()"></button>
+	</ion-nav-buttons>-->
+	<div class="bar bar-subheader">
+		<ion-scroll direction="x" scrollbar-x="false" >
+			<div class="button-bar sub_header_list" id="sub_header_list2">
+				<a class="button button-clear sub_button_select ion-clipboard" ng-click="changeTab(0);">&nbsp;涉税办理</a>
+				<a class="button button-clear ion-compose" ng-click="changeTab(1);">&nbsp;申报纳税</a>
+				<a class="button button-clear ion-funnel" ng-click="changeTab(2);">&nbsp;信息查询</a>
+			</div>
+		</ion-scroll>
+	</div>
+
+	<ion-content  class="has-subheader" style="margin-top: 6px;">
+		<div class="first-list">
+			<div>
+				<ion-slide-box does-continue="true" auto-play="false" show-pager="false" delegate-handle="taxSlideBox" on-slide-changed="slideChange(index)" id="taxServiceSlideBox">
+					<ion-slide>
+						<!--涉税办理-->
+						<ion-view>
+							<ion-content>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('ssbl001_1')">
+									<img src="img/bsfw_zrrdj.png">
+									<div class="body_pad item-body">
+										自然人登记
+									</div>
+									<div class="body_pad item-body item-note ">
+										提供自然人登记申请功能，其使用对象为自然人
+									</div>
+								</ion-item>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('ssbl002')">
+									<img src="img/bsfw_jmssq.png">
+									<div class="body_pad item-body">
+										减免税申请
+									</div>
+									<div class="body_pad item-body item-note ">
+										提供給用户（纳税人）减免税申请业务功能，需要用户进行纳税人验证登录
+									</div>
+								</ion-item>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('ssbl003_1')">
+									<img src="img/bsfw_cztdjm.png">
+									<div class="body_pad item-body">
+										城镇土地减免
+									</div>
+									<div class="body_pad item-body item-note ">
+										提供給用户（纳税人）城镇土地减免申请业务功能，需要用户进行纳税人验证登录
+									</div>
+								</ion-item>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('ssbl005_1')">
+									<img src="img/bsfw_sxfjb.png">
+									<div class="body_pad item-body">
+										手续费结报
+									</div>
+									<div class="body_pad item-body item-note ">
+										提供給用户（纳税人）手续费结报业务功能，需要用户进行纳税人验证登录
+									</div>
+								</ion-item>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('ssbl006_1')">
+									<img src="img/bsfw_lxfsbg.png">
+									<div class="body_pad item-body">
+										联系方式变更
+									</div>
+									<div class="body_pad item-body item-note ">
+										提供个人所得税、营业税、印花税及各税种滞纳金的常用的计算公式
+									</div>
+								</ion-item>
+							</ion-content>
+						</ion-view>
+						<!--<div>-->
+						<!--<div class="row row-h-4" >-->
+						<!--<div class="col col-33 button" ng-click="showlink('ssbl001_1');">-->
+						<!--<img src="img/tax_zrrdj.png">-->
+						<!--</div>-->
+						<!--<div class="col col-33 button" ng-click="showlink('ssbl002');">-->
+						<!--<img src="img/tax_jmssq.png">-->
+						<!--</div>-->
+						<!--<div class="col col-33 button" ng-click="showlink('ssbl003_1');">-->
+						<!--<img src="img/tax_cztdjm.png">-->
+						<!--</div>-->
+						<!--</div>-->
+						<!--<div class="row row-h-4">-->
+						<!--<div class="col col-33 button" ng-click="showlink('ssbl005_1');">-->
+						<!--<img src="img/tax_sxfjb.png">-->
+						<!--</div>-->
+						<!--<div class="col col-33 button" ng-click="showlink('ssbl006_1');">-->
+						<!--<img src="img/tax_lxfsbg.png">-->
+						<!--</div>-->
+						<!--</div>-->
+						<!--</div>-->
+					</ion-slide>
+					<ion-slide>
+						<!--申报纳税-->
+						<ion-view>
+							<ion-content>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('sbns003')">
+									<img src="img/bsfw_grsdssb.png">
+									<div class="body_pad item-body">
+										个人所得税自行纳税申报表（A表）
+									</div>
+									<div class="body_pad item-body item-note ">
+										提供个人所得税自行申报功能，需要用户进行纳税人验证登录
+									</div>
+								</ion-item>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('sbns001_1')">
+									<img src="img/bsfw_gs12wsb.png">
+									<div class="body_pad item-body">
+										个税12万申报
+									</div>
+									<div class="body_pad item-body item-note ">
+										提供个人年所得十二万元以申报和个人多处取得收入申报，需要用户进行纳税人验证登录
+									</div>
+								</ion-item>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('sbns002_1')">
+									<img src="img/bsfw_sbsb.png">
+									<div class="body_pad item-body">
+										社保申报
+									</div>
+									<div class="body_pad item-body item-note ">
+										提供企业社保费和基金的申报缴款，需要用户进行纳税人验证登录
+									</div>
+								</ion-item>
+							</ion-content>
+						</ion-view>
+						<!--<div>-->
+						<!--<div class="row row-h-4">-->
+						<!--<div class="col col-33 button" ng-click="showlink('sbns001_1');">-->
+						<!--<img src="img/tax_gs12wsb.png">-->
+						<!--</div>-->
+						<!--<div class="col col-33 button" ng-click="showlink('sbns002_1');">-->
+						<!--<img src="img/tax_sbsb.png">-->
+						<!--</div>-->
+						<!--</div>-->
+						<!--</div>-->
+					</ion-slide>
+					<ion-slide>
+						<!--信息查询-->
+						<ion-view>
+							<ion-content>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('cxfw001')">
+									<img src="img/bsfw_qyxxcx.png">
+									<div class="body_pad item-body">
+										企业信息查询
+									</div>
+									<div class="body_pad item-body item-note ">
+										提供給用户（纳税人）的基本情况的查询，需要用户绑定绑定企业信息
+									</div>
+								</ion-item>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('cxfw002')">
+									<img src="img/bsfw_wdss.png">
+									<div class="body_pad item-body">
+										我的税收
+									</div>
+									<div class="body_pad item-body item-note ">
+										提供給用户（自然人）的个人所得税缴纳情况的查询，需要用户进行纳税人验证登录
+									</div>
+								</ion-item>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('cxfw004')">
+									<img src="img/bsfw_sbfcx.png">
+									<div class="body_pad item-body">
+										社保费查询
+									</div>
+									<div class="body_pad item-body item-note ">
+										提給用户（自然人）的社保费基本信息和缴纳情况的查询，需要用户绑定绑定企业信息
+									</div>
+								</ion-item>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('cxfw003')">
+									<img src="img/bsfw_fpyz.png">
+									<div class="body_pad item-body">
+										发票验证
+									</div>
+									<div class="body_pad item-body item-note ">
+										提供給用户（自然人）发票信息查询，按照发票代码和发票号码和扫描发票的条形码
+									</div>
+								</ion-item>
+								<ion-item class="item-thumbnail-left" ng-click="showlink('cxfw005')">
+									<img src="img/bsfw_nsxycx.png">
+									<div class="body_pad item-body">
+										纳税信用评价
+									</div>
+									<div class="body_pad item-body item-note ">
+										输入企业的相关信息后，向用户展示纳税人的信用等级评定结果，需要用户绑定绑定企业信息
+									</div>
+								</ion-item>
+							</ion-content>
+						</ion-view>
+						<!--<div>-->
+						<!--<div class="row row-h-4" >-->
+						<!--<div class="col col-33 button" ng-click="showlink('xxcx_qyxxcx');">-->
+						<!--<img src="img/tax_qyxxcx.png">-->
+						<!--</div>-->
+						<!--<div class="col col-33 button" ng-click="showlink('xxcx_wdss');" >-->
+						<!--<img src="img/tax_wdss.png">-->
+						<!--</div>-->
+						<!--<div class="col col-33 button" ng-click="showlink('xxcx_sbfcx');">-->
+						<!--<img src="img/tax_sbfcx.png">-->
+						<!--</div>-->
+						<!--</div>-->
+						<!--<div class="row row-h-4">-->
+						<!--<div class="col col-33 button" ng-click="showlink('xxcx_fpyz');">-->
+						<!--<img src="img/tax_fpyz.png">-->
+						<!--</div>-->
+						<!--<div class="col col-33 button" ng-click="showlink('xxcx_nsxycx');">-->
+						<!--<img src="img/tax_nsxycx.png">-->
+						<!--</div>-->
+						<!--</div>-->
+						<!--</div>-->
+					</ion-slide>
+				</ion-slide-box>
+			</div>
+		</div>
+	</ion-content>
+	<!--<ion-content>
+	<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()">
+	</ion-refresher>
+
+	<div ng-if="showloading" style="margin-top:60px; text-align: center">
+
+	<ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+	</div>
+
+	<ion-list class="topics"  ng-if="showloading==false">
+	<ion-item collection-repeat="topic in threadlListData" href="#/tab/thread_content/{{topic.tid}}"
+	collection-item-width="'100%'" collection-item-height="65px">
+	<h2>{{topic.subject}}</h2>
+	<p class="summary">
+
+	</p>
+	</ion-item>
+	</ion-list>
+	<ion-infinite-scroll icon="ion-load-d"  on-infinite="loadMore()" distance="1%" ng-if="moreDataCanBeLoaded()"></ion-infinite-scroll>
+
+	</ion-content>-->
+</ion-view>

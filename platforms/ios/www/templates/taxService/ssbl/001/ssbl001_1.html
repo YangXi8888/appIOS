@@ -1,0 +1,86 @@
+<ion-view view-title="自然人信息采集">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+    <ion-content has-bouncing="true" >
+        <ion-list>
+            <ion-item class="item-icon-right" href="#" ng-click="openXyModal()">
+                自然人预登记申请
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item-icon-right" href="#" ng-click="openCxModal()">
+                申请状态查询
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+<script id="zrrDjXy.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar-positive item-button-right">
+      <h1 class="title" style="text-align: center">自然人预登记协议</h1>
+      <a class="button button-clear icon ion-ios-close-outline" ng-click="closeXyModal();"></a>
+    </ion-header-bar>
+    <ion-content class="padding">
+      <div style="margin-top:10px;">
+        <p>一、请您认真阅读本协议内容，如果您确认同意遵守本协议，请点击"同意"进入自然人预登记。</p>
+        <p>二、网上自然人预登记流程：
+          <br>
+          纳税人必须准确、完整地填写自然人登记内容。纳税人对填写的信息确认无误后点击提交，提交成功后系统将产生流水号。此后，纳税人可凭流水号和密码，查询登记进度。</p>
+        <p>
+          三、自然人登记信息必须遵照国家法律法规规定进行填写。若提供任何错误、不实、过时的资料，或者税务机关有充分理由认为所报送的资料错误、不实、过时或报送资料不完整，税务机关有权暂停或终止受理所提交的申请登记事项。
+        </p>
+        <p>
+          四、税务机关在未经合法授权的情况下，不得公开、编辑或透露纳税人相关信息及其保存在本网站内的非公开内容。
+        </p>
+        <p>
+          五、纳税人有义务保证密码的安全使用。以网上登记流水号和密码进行查询及修改的，视同纳税人自身行为。
+        </p>
+        <p>
+          六、纳税人需对网上自行操作的一切行为负责，任何恶意行为及破坏性操作一经发现，税务机关有权停止其网上行为并做出相应处理。
+        </p>
+        <p>
+          七、当纳税人提交的资料与网上提交的登记内容不符，不能通过审验的，纳税人应重新提交或办理登记。
+        </p>
+
+        <br>
+        <div style="text-align: center;">
+          <a class="button button-outline button-assertive" ng-click="disAgree()" style="border-radius: 10px;width: 30%">不同意</a>&nbsp;&nbsp;&nbsp;
+          <a class="button button-outline button-positive" ng-click="agree()" style="border-radius: 10px;width: 30%">同&nbsp;&nbsp;意</a>
+        </div>
+        <div style="height: 30px;"></div>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+<script id="sqZtCx.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar-positive item-button-right">
+      <h1 class="title"  style="text-align: center">申请状态查询</h1>
+      <a class="button button-clear icon ion-ios-close-outline" ng-click="closeCxModal()"></a>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list class="padding">
+        <ion-item class="item-input">
+          <span class="input-label" style="text-align: right">查询流水号：</span>
+          <input type="text" ng-model="queryInfo.lsh" placeholder="流水号">
+        </ion-item>
+        <ion-item class="item-input">
+          <span class="input-label" style="text-align: right">查询密码：</span>
+          <input type="password" ng-model="queryInfo.pwd" placeholder="密  码">
+        </ion-item>
+        <ion-item class="item-input">
+          <span class="input-label" style="text-align: right">纳税人名称：</span>
+          <input type="text" value="{{resultInfo.mc}}" readonly="readonly">
+        </ion-item>
+        <ion-item class="item-input">
+          <span class="input-label" style="text-align: right">当前状态：</span>
+          <input type="text" value="{{resultInfo.zt}}" readonly="readonly">
+        </ion-item>
+        <ion-item>
+          <button class="button button-block button-outline button-positive" style="border-radius: 10px;"  ng-click="queryZt(queryInfo)">查询</button>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-modal-view>
+</script>

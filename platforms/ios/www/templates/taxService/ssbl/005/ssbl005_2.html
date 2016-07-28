@@ -1,0 +1,110 @@
+<ion-view view-title="手续费结报申报">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label" style="text-align: right;">纳税人名称：</span>
+        <input type="text" id="ssbl005_nsrmc" value="{{jbxx.nsrmc}}" readonly="readonly"/>
+      </label>
+      <label class="item item-input item-select">
+        <span class="input-label" style="text-align: right;">银行代码：</span>
+        <select id="ssbl005_yhdm">
+          <option ng-repeat="item in ssbl005_yhdm" ng-selected="item" value="{{item}}">{{item}}</option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <span class="input-label" style="text-align: right;">银行名称：</span>
+        <select id="ssbl005_yhmc">
+          <option ng-repeat="item in ssbl005_yhmc" ng-selected="item" value="{{item}}">{{item}}</option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <span class="input-label" style="text-align: right;">银行账号：</span>
+        <select id="ssbl005_yhzh">
+          <option ng-repeat="item in ssbl005_yhzh" ng-selected="item" value="{{item}}">{{item}}</option>
+        </select>
+      </label>
+      <label class="item item-input">
+        <span class="input-label" style="text-align: right;">入库时间起：</span>
+        <input type="text" id="ssbl005_rksjq" value="{{jbxx.rksjq}}" readonly="readonly"/>
+      </label>
+      <label class="item item-input">
+        <span class="input-label" style="text-align: right;">入库时间止：</span>
+        <input type="text" id="ssbl005_rksjz" value="{{jbxx.rksjz}}" readonly="readonly"/>
+      </label>
+      <label class="item item-input">
+        <span class="input-label" style="text-align: right;">入库合计：</span>
+        <input type="text" id="ssbl005_rkhj" value="{{jbxx.rkhj}}" readonly="readonly"/>
+      </label>
+      <label class="item item-input">
+        <span class="input-label" style="text-align: right;">退库合计：</span>
+        <input type="text" id="ssbl005_tkhj" value="{{jbxx.tkhj}}" readonly="readonly"/>
+      </label>
+      <label class="item item-input">
+        <span class="input-label" style="text-align: right;">税款合计：</span>
+        <input type="text" id="ssbl005_skhj" value="{{jbxx.skhj}}" readonly="readonly"/>
+      </label>
+      <label class="item item-input">
+        <span class="input-label" style="text-align: right;">应结手续费：</span>
+        <input type="text" id="ssbl005_yjsxf" value="{{jbxx.sxfhj}}" readonly="readonly"/>
+      </label>
+      <ion-item>
+        <button class="button button-outline button-positive" ng-click="showMxList()">
+          查看详细信息
+        </button>
+      </ion-item>
+      <ion-item>
+        <button class="button button-block button-outline button-positive"  ng-click="submitSqbxx()">提交</button>
+      </ion-item>
+    </div>
+  </ion-content>
+  </ion-view>
+<script id="listJkxx.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar-positive item-button-right">
+      <h1 class="title" style="text-align: center">税款详细信息</h1>
+      <a class="button button-clear icon ion-ios-close-outline" ng-click="closeXyModal();"></a>
+    </ion-header-bar>
+    <ion-content>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>
+            机打税票号
+          </th>
+          <th>
+            税种
+          </th>
+          <th>
+            入库时间
+          </th>
+          <th>
+            税款金额
+          </th>
+          <th>
+            手续费率
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in listJkxx">
+          <td>{{item.dzsph}}</td>
+          <td>{{item.zsxmmc}}</td>
+          <td>{{item.rq}}</td>
+          <td>{{item.se}}</td>
+          <td>{{item.lqbl}}</td>
+        </tr>
+        </tbody>
+        <tfoot class="hide-if-no-paging">
+        <tr>
+          <td colspan="5">
+            <div class="pagination pagination-centered"></div>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </ion-content>
+  </ion-modal-view>
+</script>

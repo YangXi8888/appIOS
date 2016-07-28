@@ -1,0 +1,62 @@
+<ion-view view-title="投诉举报">
+  <ion-nav-buttons side="left">
+      <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-content>
+      <div class="list card">
+          <div class="item item-divider">
+              <h2>投诉须知>></h2>
+          </div>
+          <div class="item item-text-wrap">
+              <div>请认真填写表格（带<span style="color:red;">*</span>为必填）</div>
+              <div>请留下您的真实姓名、联系电话、信箱地址，以便更好地与您联系！</div>
+              <div>在提交完成后您将得到<span style="color:red">受理编号</span>和<span style="color:red">查询码</span>请妥善保存，以备查用。</div>
+          </div>
+          <div class="item item-divider">
+              请填写<span style="color: red">被投诉者信息</span>:
+          </div>
+          <label class="item item-input item-select">
+              <span class="input-label">是否公开</span>
+              <select ng-model="wyts_con.gk">
+                  <option value="0">不公开</option>
+                  <option value="1">公开</option>
+              </select>
+          </label>
+          <label class="item item-input">
+              <span class="input-label">姓名</span>
+              <input ng-model="wyts_con.bts_name" type="text" placeholder="请输入姓名*">
+          </label>
+          <label class="item item-input">
+              <span class="input-label">单位及职务</span>
+              <input ng-model="wyts_con.bts_dwjzw" type="text" placeholder="请输入单位及职务*">
+          </label>
+          <label class="item item-input">
+              <span class="input-label">主题</span>
+              <input ng-model="wyts_con.title" type="text" placeholder="请输入主题*">
+          </label>
+          <label class="item item-input">
+              <span class="input-label">内容</span>
+              <textarea rows="6" placeholder="请输入内容*" ng-model="wyts_con.content"></textarea>
+          </label>
+          <div class="item item-divider">
+            请填写<span style="color: red">投诉者信息</span>:
+          </div>
+          <label class="item item-input">
+            <span class="input-label">姓名</span>
+            <input ng-model="wyts_con.ts_name" type="text" placeholder="请输入姓名">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">联系电话</span>
+            <input ng-model="wyts_con.ts_lxdh" type="text" placeholder="请输入联系电话">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">单位及职务</span>
+            <input ng-model="wyts_con.ts_dwjzw" type="text" placeholder="请输入单位及职务">
+          </label>
+          <div class="item" align="center">
+            <a class="button button-outline button-calm" ng-click="wyts_tj()">提交</a>&nbsp;&nbsp;&nbsp;
+            <a class="button button-outline button-assertive" ng-click="wyts_cz()">重置</a>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,147 @@
+<ion-view title="新增申报列表">
+	<ion-nav-buttons side="left">
+		<button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+	</ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <!--<button class="button button-clear icon ion-ios-plus-outline" ng-click="openMenus()"></button>-->
+    <button class="button button-clear" ng-click="goSubmit()">提&nbsp;交</button>
+  </ion-nav-buttons>
+	<ion-content has-bouncing="true" >
+    <ion-list>
+      <ion-item ng-repeat="item in addList" item="item" href="#" class="item-remove-animate" ng-click="editItem(item)">
+        {{item.zspm_mc}}  <span style="float:right;">{{item.ybtse_je}}</span>
+        <!--swipe -->
+        <ion-option-button class="button-assertive"
+                           ng-click="deleteItem(item)">
+          删除
+        </ion-option-button>
+      </ion-item>
+      <ion-item style="padding:0px;border-top-width: 5px;" ng-if="hasAddList">
+        <ion-item class="item-input" style="padding: 0px;">
+          <div style="text-align: center;width: 100%" >应补(退)税额</div>
+        </ion-item>
+        <ion-item class="item-input" style="padding: 0px;">
+          <div class="col col-50" style="text-align: center;border-right: 1px solid #dddddd">试算</div>
+          <div class="col col-50" style="text-align: center" >{{sbns001.ybtsehj | number:2}}</div>
+        </ion-item>
+        <ion-item class="item-input" style="padding: 0px;">
+          <div class="col col-50" style="text-align: center;border-right: 1px solid #dddddd">新增</div>
+          <div class="col col-50" style="text-align: center" >{{sbns001.ybtsehjAdd | number:2}}</div>
+        </ion-item>
+        <ion-item class="item-input" style="padding: 0px;">
+          <div class="col col-50" style="text-align: center;border-right: 1px solid #dddddd">合计</div>
+          <div class="col col-50" style="text-align: center" >{{sbns001.ybtsehjAll | number:2}}</div>
+        </ion-item>
+      </ion-item>
+    </ion-list>
+	</ion-content>
+</ion-view>
+<script id="addModal.html" type="text/ng-template" >
+  <ion-modal-view>
+    <ion-header-bar class="bar-positive">
+      <a class="button button-clear icon ion-ios-close-outline" ng-click="closeAddModal()"></a>
+      <h1 class="title" style="text-align: center">新增税目</h1>
+      <a class="button button-clear icon ion-ios-checkmark-outline" ng-click="saveAddRecord()"></a>
+    </ion-header-bar>
+    <ion-content has-bouncing="true" >
+      <div class="list">
+        <label class="item item-input item-select">
+          <span class="input-label col col-50" >所得项目</span>
+          <select id="sbns001_5_sdxm">
+            <option value="">-请选择所得项-</option>
+            <option value="{{item.zspm_dm}}" ng-repeat="item in sbns001.sbns001_zspmList">{{item.zspm_mc}}</option>
+          </select>
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">年所得额-境内</span>
+          <input type="number" placeholder="必填" style="text-align: right" id="sbns001_5_nsdejn">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">年所得额-境外</span>
+          <input type="number" placeholder="选填" style="text-align: right" id="sbns001_5_nsdejw">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">年所得额-合计</span>
+          <input type="number" readonly="readonly" style="text-align: right" id="sbns001_5_nsdehj">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">应纳税所得额</span>
+          <input type="number" placeholder="必填" style="text-align: right" id="sbns001_5_ynssde">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">应纳税额</span>
+          <input type="number" placeholder="必填" style="text-align: right" id="sbns001_5_ynse">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">已缴(扣)税额</span>
+          <input type="number" placeholder="选填" style="text-align: right" id="sbns001_5_yjkse">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">抵扣税额</span>
+          <input type="number" placeholder="选填" style="text-align: right" id="sbns001_5_dkse">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">减免税额</span>
+          <input type="number" placeholder="选填" style="text-align: right" id="sbns001_5_jmse">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">应补退税额</span>
+          <input type="number" readonly="readonly" style="text-align: right" id="sbns001_5_ybtse">
+        </label>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+<script id="editModal.html" type="text/ng-template" >
+  <ion-modal-view>
+    <ion-header-bar class="bar-positive">
+      <h1 class="title" style="text-align: center">税目明细</h1>
+      <a class="button button-clear icon ion-ios-close-outline" ng-click="closeEditModal()"></a>
+    </ion-header-bar>
+    <ion-content has-bouncing="true" >
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label col col-50" >所得项目</span>
+          <input type="text" readonly="readonly" style="text-align: right"value="{{item.zspm_mc}}">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">年所得额-境内</span>
+          <input type="number" readonly="readonly" style="text-align: right" value="{{item.hjsre_je}}">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">年所得额-境外</span>
+          <input type="number" readonly="readonly" style="text-align: right" value="{{item.jwsre_je}}">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">年所得额-合计</span>
+          <input type="number" readonly="readonly" style="text-align: right" value="{{item.nsdeHj}}">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">应纳税所得额</span>
+          <input type="number" readonly="readonly" style="text-align: right" value="{{item.ynssde_je}}">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">应纳税额</span>
+          <input type="number" readonly="readonly" style="text-align: right" value="{{item.ynse_je}}">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">已缴(扣)税额</span>
+          <input type="number" readonly="readonly" style="text-align: right" value="{{item.yjkse_je}}">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">抵扣税额</span>
+          <input type="number" readonly="readonly" style="text-align: right" value="{{item.dkse_je}}">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">减免税额</span>
+          <input type="number" readonly="readonly" style="text-align: right" value="{{item.misse_je}}">
+        </label>
+        <label class="item item-input">
+          <span class="input-label col col-50">应补退税额</span>
+          <input type="number" readonly="readonly" style="text-align: right" value="{{item.ybtse_je}}">
+        </label>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+

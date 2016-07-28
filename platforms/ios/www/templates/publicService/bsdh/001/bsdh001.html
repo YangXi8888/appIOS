@@ -1,0 +1,216 @@
+<ion-view title="办税日历" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button  class="button button-icon button-clear ion-navicon" menu-toggle="right" ng-click="openPopover($event);"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list >
+            <div ng-if="play[0]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NJ_SQ','南京市区');" id='NJ_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NJ_JNQ','南京江宁区');" id='NJ_JNQ'>江宁区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NJ_PKQ','南京浦口区');" id='NJ_PKQ'>浦口区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NJ_LHQ','南京六合区');" id='NJ_LHQ'>六合区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NJ_LSQ','南京溧水区');" id='NJ_LSQ'>溧水区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NJ_GCQ','南京高淳区');" id='NJ_GCQ'>高淳区<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[1]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('WX_SQ','无锡市区');" id='WX_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('WX_JYS','无锡江阴市');" id='WX_JYS'>江阴市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('WX_YXS','无锡宜兴市');" id='WX_YXS'>宜兴市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('WX_XSQ','无锡锡山区');" id='WX_XSQ'>锡山区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('WX_HSQ','无锡惠山区');" id='WX_HSQ'>惠山区<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[2]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('XZ_SQ','徐州市区');" id='XZ_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('XZ_FX','徐州丰县');" id='XZ_FX'>丰&nbsp;县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('XZ_PX','徐州沛县');" id='XZ_PX'>沛&nbsp;县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('XZ_TSQ','徐州铜山区');" id='XZ_TSQ'>铜山区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('XZ_SNX','徐州睢宁县');" id='XZ_SNX'>睢宁县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('XZ_PZS','徐州邳州市');" id='XZ_PZS'>邳州市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('XZ_XYS','徐州新沂市');" id='XZ_XYS'>新沂市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('XZ_JWQ','徐州贾汪区');" id='XZ_JWQ'>贾汪区<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[3]">
+               <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('CZ_SQ','常州市区');" id='CZ_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('CZ_WJQ','常州武进区');" id='CZ_WJQ'>武进区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('CZ_JTS','常州金坛市');" id='CZ_JTS'>金坛市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('CZ_LYS','常州溧阳市');" id='CZ_LYS'>溧阳市<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[4]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SZ_SQ','苏州市区');" id='SZ_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SZ_CSS','苏州常熟市');" id='SZ_CSS'>常熟市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SZ_ZJGS','苏州张家港市');" id='SZ_ZJGS'>张家港市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SZ_KSS','苏州昆山市');" id='SZ_KSS'>昆山市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SZ_TCS','苏州太仓市');" id='SZ_TCS'>太仓市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SZ_WJS','苏州吴江市');" id='SZ_WJS'>吴江市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SZ_WZQ','苏州吴中区');" id='SZ_WZQ'>吴中区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SZ_XCQ','苏州相城区');" id='SZ_XCQ'>相城区<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[5]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NT_SQ','南通市区');" id='NT_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NT_TZQ','南通通州区');" id='NT_TZQ'>通州区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NT_QDS','南通启东市');" id='NT_QDS'>启东市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NT_HMS','南通海门市');" id='NT_HMS'>海门市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NT_RDX','南通如东县');" id='NT_RDX'>如东县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NT_RGS','南通如皋市');" id='NT_RGS'>如皋市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('NT_HAX','南通海安县');" id='NT_HAX'>海安县<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[6]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('LYG_SQ','连云港市区');" id='LYG_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('LYG_GYQ','连云港赣榆区');" id='LYG_GYQ'>赣榆区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('LYG_DHX','连云港东海县');" id='LYG_DHX'>东海县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('LYG_GYX','连云港灌云县');" id='LYG_GYX'>灌云县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('LYG_GNX','连云港灌南县');" id='LYG_GNX'>灌南县<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[7]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('HA_SQ','淮安市区');" id='HA_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('HA_HYQ','淮安淮阴区');" id='HA_HYQ'>淮阴区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('HA_HAQ','淮安淮安区');" id='HA_HAQ'>淮安区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('HA_LSX','淮安涟水县');" id='HA_LSX'>涟水县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('HA_HZX','淮安洪泽县');" id='HA_HZX'>洪泽县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('HA_XYX','淮安盱眙县');" id='HA_XYX'>盱眙县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('HA_JHX','淮安金湖县');" id='HA_JHX'>金湖县<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[8]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YC_SQ','盐城市区');" id='YC_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YC_DTS','盐城东台市');" id='YC_DTS'>东台市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YC_DFS','盐城大丰市');" id='YC_DFS'>大丰市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YC_YDQ','盐城盐都区');" id='YC_YDQ'>盐都区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YC_JHX','盐城建湖县');" id='YC_JHX'>建湖县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YC_SYX','盐城射阳县');" id='YC_SYX'>射阳县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YC_XSX','盐城响水县');" id='YC_XSX'>响水县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YC_FNX','盐城阜宁县');" id='YC_FNX'>阜宁县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YC_BHX','盐城滨海县');" id='YC_BHX'>滨海县<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[9]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YZ_SQ','扬州市区');" id='YZ_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YZ_BYX','扬州宝应县');" id='YZ_BYX'>宝应县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YZ_GYS','扬州高邮市');" id='YZ_GYS'>高邮市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YZ_JDQ','扬州江都区');" id='YZ_JDQ'>江都区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YZ_GJQ','扬州邗江区');" id='YZ_GJQ'>邗江区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('YZ_YZS','扬州仪征市');" id='YZ_YZS'>仪征市<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[10]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('ZJ_SQ','镇江市区');" id='ZJ_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('ZJ_DYS','镇江丹阳市');" id='ZJ_DYS'>丹阳市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('ZJ_YZS','镇江扬中市');" id='ZJ_YZS'>扬中市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('ZJ_JRS','镇江句容市');" id='ZJ_JRS'>句容市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('ZJ_DTQ','镇江丹徒区');" id='ZJ_DTQ'>丹徒区<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[11]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('TZ_SQ','泰州市区');" id='TZ_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('TZ_JYS','泰州姜堰市');" id='TZ_JYS'>姜堰市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('TZ_JJS','泰州靖江市');" id='TZ_JJS'>靖江市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('TZ_TXS','泰州泰兴市');" id='TZ_TXS'>泰兴市<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('TZ_XHS','泰州兴化市');" id='TZ_XHS'>兴化市<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[12]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SQ_SQ','宿迁市区');" id='SQ_SQ'>市&nbsp;区<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SQ_SUYX','宿迁沭阳县');" id='SQ_SUYX'>沭阳县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SQ_SIYX','宿迁泗阳县');" id='SQ_SIYX'>泗阳县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SQ_SHX','宿迁泗洪县');" id='SQ_SHX'>泗洪县<i class="icon ion-ios-arrow-down"></i></ion-item>
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SQ_SYQ','宿迁宿豫区');" id='SQ_SYQ'>宿豫区<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[13]">
+                <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('SZYQ','苏州工业园区');" id='SZYQ'>苏州工业园区<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+            <div ng-if="play[14]">
+               <ion-item class="item-icon-right" ng-click="openSJMXModal();bsrlmx('BSQ','张家港保税区');" id='BSQ'>张家港保税区<i class="icon ion-ios-arrow-down"></i></ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>
+<script id="ez-popover.html" type="text/ng-template">
+    <div style="float: right;margin:26px 9px 0px 0px;">
+        <i class="icon ion-arrow-up-b"></i>
+        <ion-popover-view class="zxzxPopover">
+            <ion-content align="center" class="zxzxContent">
+                <ion-list>
+                    <a ng-click="closePopover();sqList('23201');" class=" item">南&nbsp;京</a>
+                    <a ng-click="closePopover();sqList('23202');" class=" item">无&nbsp;锡</a>
+                    <a ng-click="closePopover();sqList('23203');" class=" item">徐&nbsp;州</a>
+                    <a ng-click="closePopover();sqList('23204');" class=" item">常&nbsp;州</a>
+                    <a ng-click="closePopover();sqList('23205');" class=" item">苏&nbsp;州</a>
+                    <a ng-click="closePopover();sqList('23206');" class=" item">南&nbsp;通</a>
+                    <a ng-click="closePopover();sqList('23207');" class=" item">连云港</a>
+                    <a ng-click="closePopover();sqList('23208');" class=" item">淮&nbsp;安</a>
+                    <a ng-click="closePopover();sqList('23209');" class=" item">盐&nbsp;城</a>
+                    <a ng-click="closePopover();sqList('23210');" class=" item">扬&nbsp;州</a>
+                    <a ng-click="closePopover();sqList('23211');" class=" item">镇&nbsp;江</a>
+                    <a ng-click="closePopover();sqList('23212');" class=" item">泰&nbsp;州</a>
+                    <a ng-click="closePopover();sqList('23213');" class=" item">宿&nbsp;迁</a>
+                    <a ng-click="closePopover();sqList('23217');" class=" item">苏州园区</a>
+                    <a ng-click="closePopover();sqList('23216');" class=" item">张家港保税区</a>
+                    <!--<ion-item ng-click="closePopover();sqList('23201');" class=" text-center" style="height: 10px;">南&nbsp;京</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23202');" class=" text-center" style="height: 10px;">无&nbsp;锡</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23203');" class=" text-center" style="height: 10px;">徐&nbsp;州</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23204');" class=" text-center">常&nbsp;州</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23205');" class=" text-center">苏&nbsp;州</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23206');" class=" text-center">南&nbsp;通</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23207');" class=" text-center">连云港</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23208');" class=" text-center">淮&nbsp;安</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23209');" class=" text-center">盐&nbsp;城</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23210');" class=" text-center">扬&nbsp;州</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23211');" class=" text-center">镇&nbsp;江</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23212');" class=" text-center">泰&nbsp;州</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23213');" class=" text-center">宿&nbsp;迁</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23217');" class=" text-center">苏州园区</ion-item>-->
+                    <!--<ion-item ng-click="closePopover();sqList('23216');" class=" text-center">张家港保税区</ion-item>-->
+                </ion-list>
+            </ion-content>
+        </ion-popover-view>
+    </div>
+</script>
+<script id="bsrlmx.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-positive item-button-left" align-title="center">
+            <a class="button button-clear icon ion-ios-close-outline" ng-click="closeSJMXModal();"></a>
+            <h1 class="title">办税日历明细</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="margin: 5px auto;text-align: center;font-size: 14px;">
+                <h4> <span>{{titt}}年办税日历</span></h4>
+            </div>
+            <ion-list>
+                <ion-item ng-click="display(0);" class="item-icon-right">一月<i class="icon {{ionfx[0]}}"></i></ion-item>
+                <div ng-show="disyf[0]" class="padding" id="bsrlmx_1"></div>
+                <ion-item ng-click="display(1);" class="item-icon-right">二月<i class="icon {{ionfx[1]}}"></i></ion-item>
+                <div ng-show="disyf[1]" class="padding" id="bsrlmx_2">
+                </div>
+                <ion-item ng-click="display(2);" class="item-icon-right">三月<i class="icon {{ionfx[2]}}"></i></ion-item>
+                <div ng-show="disyf[2]" class="padding" id="bsrlmx_3">
+                </div>
+                <ion-item ng-click="display(3);" class="item-icon-right">四月<i class="icon {{ionfx[3]}}"></i></ion-item>
+                <div ng-show="disyf[3]" class="padding" id="bsrlmx_4">
+                </div>
+                <ion-item ng-click="display(4);" class="item-icon-right">五月<i class="icon {{ionfx[4]}}"></i></ion-item>
+                <div ng-show="disyf[4]" class="padding" id="bsrlmx_5">
+                </div>
+                <ion-item ng-click="display(5);" class="item-icon-right">六月<i class="icon {{ionfx[5]}}"></i></ion-item>
+                <div ng-show="disyf[5]" class="padding" id="bsrlmx_6">
+                </div>
+                <ion-item ng-click="display(6);" class="item-icon-right">七月<i class="icon {{ionfx[6]}}"></i></ion-item>
+                <div ng-show="disyf[6]" class="padding" id="bsrlmx_7">
+                </div>
+                <ion-item ng-click="display(7);" class="item-icon-right">八月<i class="icon {{ionfx[7]}}"></i></ion-item>
+                <div ng-show="disyf[7]" class="padding" id="bsrlmx_8">
+                </div>
+                <ion-item ng-click="display(8);" class="item-icon-right">九月<i class="icon {{ionfx[8]}}"></i></ion-item>
+                <div ng-show="disyf[8]" class="padding" id="bsrlmx_9">
+                </div>
+                <ion-item ng-click="display(9);" class="item-icon-right">十月<i class="icon {{ionfx[9]}}"></i></ion-item>
+                <div ng-show="disyf[9]" class="padding" id="bsrlmx_10">
+                </div>
+                <ion-item ng-click="display(10);" class="item-icon-right">十一月<i class="icon {{ionfx[10]}}"></i></ion-item>
+                <div ng-show="disyf[10]" class="padding" id="bsrlmx_11">
+                </div>
+                <ion-item ng-click="display(11);" class="item-icon-right">十二月<i class="icon {{ionfx[11]}}"></i></ion-item>
+                <div ng-show="disyf[11]" class="padding" id="bsrlmx_12">
+                </div>
+            </ion-list>
+
+        </ion-content>
+    </ion-modal-view>
+</script>

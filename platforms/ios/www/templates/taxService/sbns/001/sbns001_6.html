@@ -1,0 +1,25 @@
+<ion-view title="发起扣款">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear icon ion-ios-close-outline" ng-click="closePayPage1()"></button>
+  </ion-nav-buttons>
+	<ion-content has-bouncing="true">
+      <ion-list>
+        <ion-item class="item-input item-divider">
+          <span class="input-label">选择支付方式</span>
+        </ion-item>
+        <ion-item class="item item-avatar-left" ng-click="payOrder(1)" style="background: url('img/bao.png') no-repeat;" ng-if="canAlipay">
+          <!--  <p>
+              <span style="color: #dddddd;font-size: 12px">仅支持签约地区用户</span>
+            </p>-->
+        </ion-item>
+        <ion-item class="item item-avatar-left" ng-click="payOrder(2)" style="background: url('img/yinlian.png') no-repeat;" ng-if="canYlpay">
+          <!-- <img src="img/yinlian.jpg">
+           <p>银联支付</p>
+           <p>
+             <span style="color: #dddddd;font-size: 12px">仅支持签约地区用户</span>
+           </p>-->
+          <span style="color: #dddddd;font-size: 12px;float: left;margin-top: 30px;margin-left: 50px" >仅支持签约地区用户</span>
+        </ion-item>
+      </ion-list>
+	</ion-content>
+</ion-view>

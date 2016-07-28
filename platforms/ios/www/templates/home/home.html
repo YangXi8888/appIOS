@@ -1,0 +1,182 @@
+<ion-view view-title="{{title}}" cache-view="false" >
+    <ion-nav-buttons side="right">
+        <button ng-if="qhplay" class="button button-clear icon ion-ios-loop-strong" ng-click="exchangeQy()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="home-slide">
+            <ion-slide-box does-continue="flase" show-pager="false">
+                <ion-slide >
+                    <img src="img/title1.png" >
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+    </ion-content >
+    <ion-content style="margin-top:150px">
+        <div style="height:10px;background-color:#F5F5F5;border-top: 1px solid #FFEFEF;border-bottom: 1px solid #FFEFEF"></div>
+        <!--<div class="item item-divider" style="color:#999999;" ng-click="toAddItems()" align="left"> <a > 更多功能 </a> <i class="ion-arrow-right"></i></div>-->
+        <div class="page-slide">
+            <ion-slide-box does-continue="false" show-pager="true" style="height: {{100*commonService[0].length}}px;" auto-play="false">
+                <ion-slide  ng-repeat="page in commonService">
+                    <div class="row" style="margin:0;padding:0;height:80px;" ng-repeat="items in page">
+                        <div class="col col-25" align="center" ng-repeat="item in items" ng-click="open(item)" >
+                            <!--on-hold="deleteModule(item.name,item.moduleId)"-->
+                            <img  src="{{item.src}}" style="height: auto">
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+        <!--<div class="item" style="color:#555555;font-size:11px;padding:10px 0px;">-->
+            <!--<div class="row" style="margin:0;padding:0;height:80px;" ng-repeat="items in commonService">-->
+                <!--<div class="col col-25" align="center" ng-repeat="item in items" ng-click="open(item)" on-hold="deleteModule(item.name,item.moduleId)">-->
+                    <!--<img width="85" src="{{item.src}}"/>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div style="height:18px;background-color:#F5F5F5;border-top: 1px solid #dddddd"></div>
+        <ion-list >
+            <ion-item class="item item-icon-left item-icon-right" ng-click="showSbqk();">
+                <a class="icon ion-ios-bookmarks calm"></a>
+                <h2>本月申报情况</h2>
+                <a class="icon {{sbqkBs}} calm"></a>
+            </ion-item>
+            <!--<ion-item style="padding: 0px;" ng-if="sbqkShow">-->
+                <!--<ion-item class="item-input" style="padding: 0px;">-->
+                    <!--<div class="col col-50" style="text-align: center;border-right: 1px solid #dddddd">涉税事项</div>-->
+                    <!--<div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd" >状态</div>-->
+                    <!--<div class="col col-25" style="text-align: center" >日期</div>-->
+                <!--</ion-item>-->
+                <!--<ion-item class="item-input" style="padding: 0px;">-->
+                    <!--<div class="col col-50" style="text-align: center;border-right: 1px solid #dddddd">房地产项目信息登记</div>-->
+                    <!--<div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd" >审核通过</div>-->
+                    <!--<div class="col col-25" style="text-align: center" >2016-04-11</div>-->
+                <!--</ion-item>-->
+                <!--<ion-item class="item-input" style="padding: 0px;">-->
+                    <!--<div class="col col-50" style="text-align: center;border-right: 1px solid #dddddd">预约服务</div>-->
+                    <!--<div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd" >失效</div>-->
+                    <!--<div class="col col-25" style="text-align: center" >2016-04-07</div>-->
+                <!--</ion-item>-->
+
+                <!--<div style="height: 10px;background-color: #f5f5f5"></div>-->
+            <!--</ion-item>-->
+            <ion-item style="padding: 0px;" ng-if="sbqkShow">
+                <div class="item item-divider" style="color:#999999;">
+                    <i class="ion-android-arrow-dropright"><a>本月已申报</a></i>
+                    <i class="badge dark-bg"  ng-click="openCkxq(1);"><a style="font-size: 12px;">查看详情</a></i>
+                </div>
+                <ion-item class="item-input" ng-repeat="item in ysbList">
+                    <span class="input-label col col-50" style="text-align: center;font-size: 14px;">{{item.sbzl}}</span>
+                    <input class="col col-50" type="text" ng-model="item.sbzt" readonly="readonly" style="text-align: center">
+                </ion-item>
+                <div class="item item-divider" style="color:#999999;">
+                    <i class="ion-android-arrow-dropright"><a>本月未申报</a></i>
+                    <i class="badge dark-bg " ng-click="openCkxq(2);"><a style="font-size: 12px;">查看详情</a></i>
+                </div>
+                <ion-item class="item-input" ng-repeat="item in wsbList">
+                    <span class="input-label col col-50" style="text-align: center;font-size: 14px;">{{item.xmmc}}</span>
+                    <input class="col col-50" type="text" ng-model="item.ysbrq" readonly="readonly" style="text-align: center">
+                </ion-item>
+            </ion-item>
+        </ion-list>
+        <div style="height:18px;background-color:#F5F5F5"></div>
+        <ion-list>
+            <ion-item class="item item-icon-left item-icon-right" ng-click="showSssl();">
+                <a class="icon ion-podium calm"></a>
+                <h2>本月涉税统计</h2>
+                <a class="icon {{ssslBs}} calm"></a>
+            </ion-item>
+            <ion-item style="padding: 0px;" ng-if="ssslShow">
+                <div class="item item-divider" style="color:#999999;">
+                    <i class="ion-android-arrow-dropright"><a>本月涉税办理</a></i>
+                    <i class="badge dark-bg" ng-click="openCkxq(3);"><a style="font-size: 12px;">查看详情</a></i>
+                </div>
+            <ion-item class="item-input " ng-if="ssslShow" ng-repeat="item in ssList">
+                <span class="input-label col col-50" style="text-align: center;font-size: 14px;">{{item.sqzl_mc}}</span>
+                <input class="col col-50" ng-model="item.zt_mc" type="text" readonly="readonly" style="text-align: center">
+            </ion-item>
+            </ion-item>
+        </ion-list>
+        <div style="height:18px;background-color:#F5F5F5"></div>
+        <ion-list>
+            <ion-item class="item item-icon-left item-icon-right" ng-click="showGsgg();">
+                <a class="icon ion-speakerphone balanced"></a>
+                <h2>江苏地税公示公告</h2>
+                <a class="icon {{gsggBs}} balanced"></a>
+            </ion-item>
+            <ion-item style="padding: 0px;" ng-if="gsggShow">
+                <div class="item item-divider" style="color:#999999;">
+                    <i class="ion-android-arrow-dropright"><a>公示公告</a></i>
+                    <i class="badge light-bg" style="border: 1px solid #bfbfbf" ng-click="openGsgg();"><a style="font-size: 12px;">查看详情</a></i>
+                </div>
+                <ion-item class="sstzItem item-icon-right" ng-if="gsggShow" ng-repeat="item in gsggList" ng-click="gsggMx(item.XH,item.MXXH);">
+                    <p>{{item.TITLE}}</p>
+                    <i class="icon ion-ios-arrow-right icon-accessory"></i>
+                </ion-item>
+            </ion-item>
+        </ion-list>
+
+        <div style="height:15px;background-color:#F5F5F5"></div>
+        <ion-list>
+            <ion-item class="item item-icon-left item-icon-right" ng-click="showXzgn();">
+                <a class="icon ion-plus-circled royal"></a>
+                <h2>新增功能</h2>
+                <a class="icon {{xzgnBs}} royal"></a>
+            </ion-item>
+            <ion-item style="padding: 0px;" ng-if="xzgnIf">
+                <div class="row" style="margin:0;padding:0;height:90px;">
+                    <div class="col col-25" align="center" ng-click="xzgnGo('tab.sqhd005')" >
+                        <img  src="img/public_yyfw.png" style="height:100px">
+                    </div>
+                    <div class="col col-25" align="center" ng-click="xzgnGo('tab.sbns003')" >
+                        <img  src="img/tax_grsdssb.png" style="height: 100px">
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    <!--<div class="first-list">-->
+        <!--<!--第一行-->
+        <!--<div class="row row-h-2">-->
+            <!--<div class="col col-50">-->
+                <!--<div class="calm-bg light c-h-2">-->
+                    <!--<div>发票查询</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="col col-50">-->
+                <!--<div class="royal-bg light c-h-2">-->
+                    <!--<div>预约服务</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+
+        <!--<!--第二行-->
+        <!--<div class="row row-h-3">-->
+            <!--<div class="col col-25 ">-->
+                <!--<div class="positive-bg light c-h-3">-->
+                    <!--<div>企业办税</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col col-25">-->
+                <!--<div class="assertive-bg light c-h-3">-->
+                    <!--<div>自然人办税</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col col-25">-->
+                <!--<div class="calm-bg light c-h-3">-->
+                    <!--<div>公示公告</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col col-25">-->
+                <!--<div class="balanced-bg light c-h-3">-->
+                    <!--<div>操作导航</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+    </ion-content>
+</ion-view>
+
+

@@ -1,0 +1,38 @@
+<ion-view view-title="个人所得税自行纳税申报(A表)">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">名称</span>
+                <input  type="text" ng-model="con.zwmc" ng-disabled="true" placeholder="名称" style="padding-right:0px">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">国籍(地区)</span>
+                <input  type="text" ng-model="con.gjdqmc" ng-disabled="true" placeholder="国籍(地区)" style="padding-right:0px">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">身份证件类型</span>
+                <input  type="text" ng-model="con.zjmc" ng-disabled="true" placeholder="身份证件类型" style="padding-right:0px">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">身份证件号码</span>
+                <input  type="text" ng-model="con.zj_hm" ng-disabled="true" placeholder="身份证件号码" style="padding-right:0px">
+            </label>
+            <label class="item item-input item-select">
+                <span class="input-label">自行申报情形</span>
+                <select id="zxsbqx"><option value="02" checked="checked">没有扣缴义务人</option><option value="03">其他情形</option></select>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">税款所属期起</span>
+                <input  type="text" ng-model="con.ssqs" ng-disabled="true" placeholder="税款所属期起" style="padding-right:0px">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">税款所属期止</span>
+                <input  type="text" ng-model="con.ssqz" ng-disabled="true" placeholder="税款所属期止" style="padding-right:0px">
+            </label>
+        </div>
+        <button class="button button-positive button-full" ng-click="next()">下一步</button>
+    </ion-content>
+</ion-view>

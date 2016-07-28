@@ -1,0 +1,21 @@
+<ion-tabs class="tabs-icon-top tabs-stable tabs-color-positive {{hideTabs}}" >
+    <!--首页  icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" icon="ion-grid" href="#/tab/home"-->
+    <ion-tab title="首页" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" ng-click="go(1);">
+        <ion-nav-view name="home"></ion-nav-view>
+    </ion-tab>
+
+    <!--公共服务  icon-off="ion-ios-analytics-outline" icon-on="ion-ios-analytics icon="ion-person" href="#/tab/publicService"-->
+    <ion-tab title="公共服务"  icon-off="ion-ios-people-outline" icon-on="ion-ios-people" ng-click="go(2);">
+        <ion-nav-view name="publicService"></ion-nav-view>
+    </ion-tab>
+
+    <!--办税服务 icon-off="ion-ios-paperplane-outline" icon-on="ion-ios-paperplane" icon="ion-ios-people" href="#/tab/taxService"-->
+    <ion-tab title="办税服务" icon-off="ion-ios-paper-outline" icon-on="ion-ios-paper" ng-click="go(3);">
+        <ion-nav-view name="taxService"></ion-nav-view>
+    </ion-tab>
+
+    <!--系统设置  icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" icon="ion-happy-outline" href="#/tab/settings"-->
+    <ion-tab title="系统设置" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" ng-click="go(4);">
+        <ion-nav-view name="settings"></ion-nav-view>
+    </ion-tab>
+</ion-tabs>

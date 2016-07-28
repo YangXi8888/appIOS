@@ -1,0 +1,51 @@
+<ion-view title="办税地图" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button  class="button button-icon button-clear ion-navicon" menu-toggle="right" ng-click="openPopover($event);"></button>
+    </ion-nav-buttons>
+    <div id="allmap" class="scroll-xy " style="weight:100%;height: 100%; border: 1px solid #9e9e9e;"></div>
+    <!--<ion-content>-->
+        <!--<ion-scroll style="height:100%;weight:100%;">-->
+            <!--<div id="allmap" style="height: 500px; border: 1px solid #9e9e9e;"></div>-->
+        <!--</ion-scroll>-->
+    <!--</ion-content>-->
+</ion-view>
+<script id="ez-popover.html" type="text/ng-template">
+    <div style="float: right;margin:26px 9px 0px 0px;">
+        <i class="icon ion-arrow-up-b"></i>
+        <ion-popover-view class="zxzxPopover">
+            <ion-content align="center" class="zxzxContent">
+                <ion-list>
+                    <a ng-click="closePopover();csqh('NJ','南京市');" class=" item">南京市</a>
+                    <a ng-click="closePopover();csqh('WX','无锡市');" class=" item">无锡市</a>
+                    <a ng-click="closePopover();csqh('XZ','徐州市');" class=" item">徐州市</a>
+                    <a ng-click="closePopover();csqh('CZ','常州市');" class=" item">常州市</a>
+                    <a ng-click="closePopover();csqh('SZ','苏州市');" class=" item">苏州市</a>
+                    <a ng-click="closePopover();csqh('NT','南通市');" class=" item">南通市</a>
+                    <a ng-click="closePopover();csqh('LYG','连云港市');" class=" item">连云港市</a>
+                    <a ng-click="closePopover();csqh('HA','淮安市');" class=" item">淮安市</a>
+                    <a ng-click="closePopover();csqh('YC','盐城市');" class=" item">盐城市</a>
+                    <a ng-click="closePopover();csqh('YZ','扬州市');" class=" item">扬州市</a>
+                    <a ng-click="closePopover();csqh('ZJ','镇江市');" class=" item">镇江市</a>
+                    <a ng-click="closePopover();csqh('TZ','泰州市');" class=" item">泰州市</a>
+                    <a ng-click="closePopover();csqh('SQ','宿迁市');" class=" item">宿迁市</a>
+                <!--<ion-item ng-click="closePopover();csqh('NJ','南京市');" class="item-calm text-center">南京市</ion-item>-->
+                <!--<ion-item ng-click="closePopover();csqh('WX','无锡市');" class="item-calm text-center">无锡市</ion-item>-->
+                <!--<ion-item ng-click="closePopover();csqh('XZ','徐州市');" class="item-calm text-center">徐州市</ion-item>-->
+                <!--<ion-item ng-click="closePopover();csqh('CZ','常州市');" class="item-calm text-center">常州市</ion-item>-->
+                <!--<ion-item ng-click="closePopover();csqh('SZ','苏州市');" class="item-calm text-center">苏州市</ion-item>-->
+                <!--<ion-item ng-click="closePopover();csqh('NT','南通市');" class="item-calm text-center">南通市</ion-item>-->
+                <!--<ion-item ng-click="closePopover();csqh('LYG','连云港市');" class="item-calm text-center">连云港市</ion-item>-->
+                <!--<ion-item ng-click="closePopover();csqh('HA','淮安市');" class="item-calm text-center">淮安市</ion-item>-->
+                <!--<ion-item ng-click="closePopover();csqh('YC','盐城市');" class="item-calm text-center">盐城市</ion-item>-->
+                <!--<ion-item ng-click="closePopover();csqh('YZ','扬州市');" class="item-calm text-center">扬州市</ion-item>-->
+                <!--<ion-item ng-click="closePopover();csqh('ZJ','镇江市');" class="item-calm text-center">镇江市</ion-item>-->
+                <!--<ion-item ng-click="closePopover();csqh('TZ','泰州市');" class="item-calm text-center">泰州市</ion-item>-->
+                <!--<ion-item ng-click="closePopover();csqh('SQ','宿迁市');" class="item-calm text-center">宿迁市</ion-item>-->
+            </ion-list>
+        </ion-content>
+    </ion-popover-view>
+    </div>
+</script>

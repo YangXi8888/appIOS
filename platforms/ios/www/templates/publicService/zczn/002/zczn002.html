@@ -1,0 +1,16 @@
+<ion-view view-title="涉税信息月报">
+  <ion-nav-buttons side="left">
+      <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+      <button class="button button-clear icon ion-navicon-round" ng-click="openSsxxybPopover($event)"></button>
+  </ion-nav-buttons>
+  <ion-content has-bouncing="true">
+      <ion-list class="topics"  ng-if="showloading==false">
+          <ion-item ng-click="loadContent(con.href)" ng-repeat="con in zczn002_Content" class="item-icon-right sstzItem" style="background-color: {{con.backcolor}}">
+              <i class="icon ion-ios-arrow-right icon-accessory"></i>
+              <p >{{con.title}}</p>
+          </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-view>

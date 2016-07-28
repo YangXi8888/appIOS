@@ -1,0 +1,55 @@
+<ion-view view-title="基础信息">
+  <ion-nav-buttons side="left">
+      <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-content>
+      <div class="list">
+          <label class="item item-input">
+              <span class="input-label">电子邮箱</span>
+              <input  type="text" ng-model="zbvo.dzyx" placeholder="电子邮箱" ng-disabled="true" style="padding-right:0px">
+          </label>
+          <div class="item-divider" align="center">境内联系地址</div>
+          <label class="item item-input item-select">
+              <span class="input-label">市</span>
+              <select ng-model="jcxx.mrJcxxs" ng-options="jcxxs.MC for jcxxs in jcxxs track by jcxxs.XZQHDS_DM" ng-change="changeS()"></select>
+          </label>
+          <label class="item item-input item-select">
+              <span class="input-label">县(区)</span>
+              <select ng-model="jcxx.mrJcxxxq " ng-options="jcxxsq.MC for jcxxsq in jcxxsq track by jcxxsq.XZQHXQ_DM" ng-change="changeXq()"></select>
+          </label>
+          <label class="item item-input item-select">
+              <span class="input-label">街道</span>
+              <select ng-model="jcxx.mrJcxxjd" ng-options="jcxxjd.MC for jcxxjd in jcxxjd track by jcxxjd.XZJD_DM"></select>
+          </label>
+          <label class="item item-input">
+              <span class="input-label">联系地址</span>
+              <textarea rows="6" ng-model="zbvo.lxdz" ng-disabled="true" placeholder="联系地址"></textarea>
+          </label>
+          <label class="item item-input">
+              <span class="input-label">邮政编码</span>
+              <input  type="number" ng-model="zbvo.yzbm" ng-disabled="true" placeholder="邮政编码" maxlength="6" style="padding-right:0px">
+          </label>
+          <label class="item item-input">
+              <span class="input-label">手机</span>
+              <input  type="text" ng-model="zbvo.sj" ng-disabled="true" placeholder="手机" style="padding-right:0px">
+          </label>
+          <label class="item item-input">
+              <span class="input-label">固话</span>
+              <input  type="text" ng-model="zbvo.gh" ng-disabled="true" placeholder="固话" style="padding-right:0px">
+          </label>
+
+          <label class="item item-input item-select">
+              <span class="input-label">职业</span>
+              <select ng-model="jcxx.mrZrrzy" ng-options="zrrzy.MC for zrrzy in zrrzy track by zrrzy.ZY_DM"></select>
+          </label>
+          <label class="item item-input item-select">
+              <span class="input-label">职务</span>
+              <select ng-model="jcxx.mrZrrzw" ng-options="zrrzw.MC for zrrzw in zrrzw track by zrrzw.ZW_DM"></select>
+          </label>
+          <label class="item item-input item-select">
+              <span class="input-label">学历</span>
+              <select ng-model="jcxx.mrZrrxl" ng-options="zrrxl.MC for zrrxl in zrrxl track by zrrxl.XL_DM"></select>
+          </label>
+      </div>
+  </ion-content>
+</ion-view>

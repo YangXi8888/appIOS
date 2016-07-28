@@ -1,0 +1,37 @@
+<ion-view view-title="投诉举报">
+  <ion-nav-buttons side="left">
+      <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+      <button class="button button-clear icon ion-navicon-round" ng-click="openLzxfPopover($event)"></button>
+  </ion-nav-buttons>
+  <ion-content>
+      <div class="list card">
+          <div class="item item-divider">
+              <h2>廉政行风投诉说明>></h2>
+          </div>
+          <div class="item item-text-wrap">
+              <div>
+                  一、受理投诉范围<br>
+                  主要受理对江苏省各级地方税务局机关、江苏省地方税务局局机关全体工作人员、省辖市地方税务局领导班子成员违反党和国家法规政策、不依法行政、不廉洁从税以及违反党纪政纪等问题的投诉。
+              </div>
+              <div>
+                二、投诉联系方式<br />
+              　　 1、投诉电话：（025）83781907；<br />
+              　　 2、邮编：210024；<br />
+              　　 3、地址：南京市北京西路63号江苏省地方税务局监察室。
+              </div>
+              <div align="center">
+                  <button class="button button-outline button-positive button-small" ng-click="wyts()">我要投诉</button>
+              </div>
+          </div>
+          <div class="item item-divider">
+              投诉列表>>
+          </div>
+          <div class="item item-icon-right assertive" ng-repeat="lb in lb">
+              <i class="icon ion-close icon-accessory" ng-click="tslb_delete(lb.id,lb.code)"></i>
+              <span ng-click="tslb_xq(lb.id,lb.code)">{{lb.title}}</span>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>

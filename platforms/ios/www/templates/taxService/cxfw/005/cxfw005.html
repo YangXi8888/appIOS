@@ -1,0 +1,94 @@
+<ion-view title="纳税信用评价查询" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear icon ion-ios-loop-strong" ng-click="exchangeQy()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+            <ion-item class="item-input item-divider">
+                <span class="input-label">当前企业：</span>{{dqqy.MC}}
+            </ion-item>
+        <div class="padding">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">所属年度</span>
+                    <input ng-model="nsxycx.ssnd" type="number" placeholder="YYYY">
+                </label>
+                <button class="button button-positive button-full"  ng-click="openPJJGModal();nsxycx();" ng-disabled="!(nsxycx.ssnd)">查询</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+<script id="nsxypjjg.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-positive item-button-left" align-title="center">
+            <a class="button button-clear icon ion-ios-close-outline" ng-click="closePJJGModal();"></a>
+            <h1 class="title">纳税信用评价结果</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="margin: 5px auto;text-align: center;font-size: 14px;">
+               <h4> <span>{{nsxycx.ssnd}}</span>年度纳税信用评价结果</h4>
+            </div>
+                <ion-list>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">纳税人名称</span>
+                        <input type="text" ng-model="pjjg.nsr_mc" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">纳税人识别号</span>
+                        <input type="text" ng-model="pjjg.nsrsbm" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">注册地址</span>
+                        <input type="text" ng-model="pjjg.zcdz" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">经营地址</span>
+                        <input type="text" ng-model="pjjg.sjjydz" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">纳税信用评价结果</span>
+                        <input type="text" ng-model="pjjg.xypddf" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">年度评价结果</span>
+                        <input type="text" ng-model="pjjg.xypddj" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="text-align: left">评价税务机关</span>
+                        <input type="text" ng-model="pjjg.pjswjg" readonly="readonly" style="text-align: center">
+                    </ion-item>
+                    <ion-item>
+                        <div align="right" >{{pjjg.zzrq}}</div>
+                    </ion-item>
+                </ion-list>
+                <div class="padding">
+                    <div>
+                        <span style="color:red;" > 注：</span><span>(1)相关人员身份证件信息在公布时会省略部分内容，根据签署的信用信息共建共享协议，其他部门可以查询更多或全部的身份证号码信息。</span>
+                    </div>
+                    <div>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)按照《纳税信用管理暂行办法》规定，纳税人符合以下情形的，不参加当年的纳税信用评价。查询结果显示时，根据纳税人情况，系统自动选择对应的数字并名列具体情形：</span>
+                    </div>
+                    <div>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.纳入纳税信用管理的时间不足一个评价年度的；</span>
+                    </div>
+                    <div>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.本评价年度内无生产经营业务的；</span>
+                    </div>
+                    <div>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.因涉嫌税收违法被立案查处尚未结案的；</span>
+                    </div>
+                    <div>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.因审计、财政部门依法查出税收违法行为，税务机关正在依法执行，尚未结案的；</span>
+                    </div>
+                    <div>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.因税务争议已提取税务行政复议、行政诉讼等法律救济程序，尚未结案的。</span>
+                    </div>
+                    <div>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)纳税信用级别分别设A、B、C、D四级。A级纳税信用为年度评价指标得分90分以上的；B级纳税信用为年度评价指标得分70分以上不满90分的；C级纳税信用为年度评价指标得分40分上不满70分的；D级纳税信用为年度评价指标得分不满40分或者直接判级确定的。</span>
+                    </div>
+                </div>
+        </ion-content>
+    </ion-modal-view>
+</script>

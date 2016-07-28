@@ -1,0 +1,24 @@
+<ion-view view-title="投诉举报">
+  <ion-nav-buttons side="left">
+      <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-content>
+      <div class="list card">
+          <div class="item item-divider">
+              <h2>咨询须知>></h2>
+          </div>
+          <div class="item item-text-wrap">
+              <div>回复时间：对一般问题，我们将在一个工作日内给予回复；对需要请示上级的问题，我们将及时告知，并在接到上级答复后一个工作日内给予回复。</div>
+              <div>回复问题答案仅供参考，具体执行以法律、法规、规章和规范性文件的规定为准。</div>
+              <div align="center"><button class="button button-outline button-positive button-small" ng-click="wyxx()">我要咨询</button></div>
+          </div>
+          <div class="item item-divider">
+              你问我答的咨询列表>>
+          </div>
+          <div class="item item-icon-right assertive" ng-repeat="lb in lb">
+              <i class="icon ion-close icon-accessory" ng-click="zxlb_delete(lb.id,lb.code)"></i>
+              <span ng-click="zxlb_xq(lb.id,lb.code)">{{lb.title}}</span>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>

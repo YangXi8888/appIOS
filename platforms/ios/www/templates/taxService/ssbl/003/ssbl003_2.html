@@ -1,0 +1,46 @@
+<ion-view view-title="申请单基本信息">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="nextPage1()">下一步</button>
+  </ion-nav-buttons>
+  <ion-content has-bouncing="true" >
+    <ion-list>
+      <ion-item class="item-input item-divider">
+        <span class="input-label">减免项目</span>
+        城镇土地使用税困难性减免
+      </ion-item>
+      <ion-item class="item-input item-divider">
+        <span class="input-label">纳税人名称</span>
+{{ssbl003.ssbl003_currQy.MC}}
+      </ion-item>
+      <label class="item item-input item-select">
+        <span class="input-label">申请减免类型</span>
+        <select id="ssbl003_sqjmLx" >
+          <option ng-repeat="item in ssbl003.ssbl003_sqjmlx" value="{{item.jmlxdm}}">{{item.jmlxmc}}</option>
+        </select>
+      </label>
+      <ion-item class=" item-input item-select">
+        <span class="input-label">减免期限起</span>
+       <input type="date" id="ssbl003_jmqKs" format="yyyy-MM-dd" style="text-align: right">
+      </ion-item>
+      <ion-item class="item-input item-select">
+        <span class="input-label">减免期限止</span>
+        <input type="date" id="ssbl003_jmqJs"  format="yyyy-MM-dd" style="text-align: right">
+      </ion-item>
+      <label class="item item-input item-select">
+        <span class="input-label">政策依据</span>
+        <select id="ssbl003_zcYj">
+          <option ng-repeat="item in ssbl003.ssbl003_zcyj" value="{{item.zcyjxm}}">{{item.zcyjmc}}</option>
+        </select>
+      </label>
+      <ion-item class="item-divider">
+        申请理由
+      </ion-item>
+      <label class="item item-input">
+        <textarea placeholder="" style="height: 100px" id="ssbl003_sqly"></textarea>
+      </label>
+    </ion-list>
+  </ion-content>
+</ion-view>

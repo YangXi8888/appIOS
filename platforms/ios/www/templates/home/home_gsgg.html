@@ -1,0 +1,30 @@
+<ion-view title="公示公告" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list class="padding">
+            <ion-item class="item-select item-input">
+                <span class="input-label">当前企业：</span>
+                <select ng-model="gsgg.dqqy" ng-change="" id="QySelect">
+
+                </select>
+            </ion-item>
+            <ion-item class="item-input">
+                <span class="input-label">关键字：</span>
+                <input type="text" ng-model="gsgg.gjz" placeholder="请输入关键字">
+            </ion-item>
+            <ion-item class="item-input">
+                <span class="input-label">有效月份：</span>
+                <input type="text" ng-model="gsgg.yxyf" placeholder="YYYY-MM">
+            </ion-item>
+            <ion-item>
+                <button class="button button-positive button-full"  ng-click="gsggCx();" ng-disabled="!(gsgg.dqqy && gsgg.gjz && gsgg.yxyf)">查询</button>
+            </ion-item>
+        </ion-list>
+        <ion-item class="sstzItem item-icon-right" ng-repeat="item in gsggList" ng-click="gsggMx(item.XH,item.MXXH);">
+            <p>{{item.TITLE}}</p>
+            <i class="icon ion-ios-arrow-right icon-accessory"></i>
+        </ion-item>
+    </ion-content>
+</ion-view>

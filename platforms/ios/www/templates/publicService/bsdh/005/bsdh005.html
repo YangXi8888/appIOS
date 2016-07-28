@@ -1,0 +1,240 @@
+
+<ion-view title="税款计算" cache-view="false">
+<ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+</ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-icon-right" ng-click="openGZXJModal();">
+                工资、薪金所得纳税计算
+                <i class="icon ion-ios-arrow-down"></i>
+            </ion-item>
+            <ion-item class="item-icon-right" ng-click="openLWBCModal();">
+                劳务报酬所得纳税计算
+                <i class="icon ion-ios-arrow-down"></i>
+            </ion-item>
+            <ion-item class="item-icon-right" ng-click="openZNJModal();">
+                滞纳金计算
+                <i class="icon ion-ios-arrow-down"></i>
+            </ion-item>
+            <!--<ion-item class="item-icon-right" ng-click="openYYSModal();">-->
+                <!--营业税计算-->
+                <!--<i class="icon ion-ios-arrow-down"></i>-->
+            <!--</ion-item>-->
+            <ion-item class="item-icon-right" ng-click="openYHSModal();">
+                印花税计算
+                <i class="icon ion-ios-arrow-down"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <script id="gzxj.html" type="text/ng-template">
+        <ion-modal-view>
+            <ion-header-bar class="bar-positive item-button-left" align-title="center">
+                <a class="button button-clear icon ion-ios-close-outline" ng-click="closeGZXJModal();"></a>
+                <h1 class="title">工资、薪金所得纳税计算</h1>
+            </ion-header-bar>
+                <ion-content>
+                    <br/>
+                    <span style="margin-right: 10px;color:red;" > *请在薪酬框内填入相应的金额</span>
+                    <ion-list class="padding">
+                        <ion-item class="item-input">
+                            <span class="input-label">费用扣除标准：</span>
+                            <input type="number" ng-model="skjs1.fykcbz" placeholder="请输入费用扣除标准">
+                        </ion-item>
+                        <ion-item class="item-input">
+                            <span class="input-label">税前薪资总额：</span>
+                            <input type="number" ng-model="skjs1.sqxzze" placeholder="请输入税前薪资">
+                        </ion-item>
+                        <ion-item>
+                            <button class="button button-positive button-full"  ng-click="gzxjCount();" ng-disabled="!(skjs1.sqxzze && skjs1.fykcbz)">查看结果</button>
+                        </ion-item>
+                        <ion-item class="item-input">
+                            <span class="input-label" style="color: deepskyblue">应纳所得税额：</span>
+                            <input type="number" ng-model="skjs1.ynsdse" readonly="readonly">
+                        </ion-item>
+                        <ion-item class="item-input">
+                            <span class="input-label" style="color: deepskyblue">税后工资总额：</span>
+                            <input type="number" ng-model="skjs1.shgzze" readonly="readonly">
+                        </ion-item>
+                    </ion-list>
+                </ion-content>
+            </ion-modal-view>
+    </script>
+    <script id="lwbc.html" type="text/ng-template">
+        <ion-modal-view>
+            <ion-header-bar class="bar-positive item-button-left" align-title="center">
+                <a class="button button-clear icon ion-ios-close-outline" ng-click="closeLWBCModal();"></a>
+                <h1 class="title">劳务报酬所得纳税计算</h1>
+
+            </ion-header-bar>
+            <ion-content>
+                <ion-list class="padding">
+                    <ion-item class="item-input">
+                        <span class="input-label">税前劳务报酬：</span>
+                        <input type="number" ng-model="skjs2.sqlwbc1" placeholder="请输入税前劳务报酬">
+                    </ion-item>
+                    <ion-item>
+                        <button class="button button-positive button-full"  ng-click="lwbcCount1();" ng-disabled="!(skjs2.sqlwbc1)">查看结果</button>
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="color: deepskyblue">&nbsp;应&nbsp;纳&nbsp;所&nbsp;得&nbsp;税&nbsp;额&nbsp;：&nbsp;</span>
+                        <input type="number" ng-model="skjs2.ynsdse1" readonly="readonly">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="color: deepskyblue">税后劳务报酬总额：</span>
+                        <input type="number" ng-model="skjs2.shlwbc1" readonly="readonly">
+                    </ion-item>
+                </ion-list>
+                <hr/>
+                <ion-list class="padding">
+                    <ion-item class="item-input">
+                        <span class="input-label">税后劳务报酬：</span>
+                        <input type="number" ng-model="skjs2.shlwbc2" placeholder="请输入税后劳务报酬">
+                    </ion-item>
+                    <ion-item>
+                        <button class="button button-positive button-full"  ng-click="lwbcCount2();" ng-disabled="!(skjs2.shlwbc2)">查看结果</button>
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="color: deepskyblue">&nbsp;应&nbsp;纳&nbsp;所&nbsp;得&nbsp;税&nbsp;额&nbsp;：&nbsp;</span>
+                        <input type="number" ng-model="skjs2.ynsdse2" readonly="readonly">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="color: deepskyblue">税后劳务报酬总额：</span>
+                        <input type="number" ng-model="skjs2.sqlwbc2" readonly="readonly">
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-modal-view>
+    </script>
+    <script id="znj.html" type="text/ng-template">
+        <ion-modal-view>
+            <ion-header-bar class="bar-positive item-button-left" align-title="center">
+                <a class="button button-clear icon ion-ios-close-outline" ng-click="closeZNJModal();"></a>
+                <h1 class="title">滞纳金计算</h1>
+
+            </ion-header-bar>
+            <ion-content>
+                <br/>
+                <span style="margin-right: 10px;color:red;" > *2001年5月1日前滞纳金加征率为2‰，2001年5月1日后滞纳金加征率为0.5‰</span>
+                <ion-list class="padding">
+                    <ion-item class="item-input">
+                        <span class="input-label">滞纳的税款金额：</span>
+                        <input type="number" ng-model="skjs3.znskje" placeholder="请输入滞纳的税款金额">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label">滞纳金计算的起始日期：</span>
+                        <input type="date" ng-model="skjs3.znjQsrq" placeholder="请选择滞纳金计算的起始日期">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label">滞纳金计算的截止日期：</span>
+                        <input type="date" ng-model="skjs3.znjJzrq" placeholder="请选择滞纳金计算的截止日期">
+                    </ion-item>
+                    <ion-item>
+                        <button class="button button-positive button-full"  ng-click="znjCount();" ng-disabled="!(skjs3.znskje && skjs3.znjQsrq && skjs3.znjJzrq)">查看结果</button>
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="color: deepskyblue">&nbsp;滞&nbsp;&nbsp;纳&nbsp;&nbsp;天&nbsp;&nbsp;数&nbsp;：</span>
+                        <input type="number" ng-model="skjs3.znts" readonly="readonly">
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="color: deepskyblue">应加征滞纳金：</span>
+                        <input type="number" ng-model="skjs3.yjzznj" readonly="readonly">
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-modal-view>
+    </script>
+    <script id="yys.html" type="text/ng-template">
+        <ion-modal-view>
+            <ion-header-bar class="bar-positive item-button-left" align-title="center">
+                <a class="button button-clear icon ion-ios-close-outline" ng-click="closeYYSModal();"></a>
+                <h1 class="title">营业税计算</h1>
+
+            </ion-header-bar>
+            <ion-content>
+                <ion-list class="padding">
+                    <ion-item class="item-select item-input">
+                        <span class="input-label">营业税税目：</span>
+                        <select ng-model="skjs4.yyssm" ng-change="changeyysm();">
+                            <option value="01">交通运输业</option>
+                            <option value="02">建筑业</option>
+                            <option value="03">金融保险业A</option>
+                            <option value="04">金融保险业B</option>
+                            <option value="05">邮电通信业</option>
+                            <option value="06">文化体育业</option>
+                            <option value="07">娱乐业A</option>
+                            <option value="08">娱乐业B</option>
+                            <option value="09">服务业</option>
+                            <option value="10">转让无形资产</option>
+                            <option value="11">销售不动产</option>
+                        </select>
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label">法定营业额：</span>
+                        <input type="number" ng-model="skjs4.fdyye" placeholder="请输入法定营业额">
+                    </ion-item>
+                    <ion-item>
+                        <button class="button button-positive button-full"  ng-click="yysCount();" ng-disabled="!(skjs4.fdyye)">查看结果</button>
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="color: deepskyblue">应纳营业税额：</span>
+                        <input type="number" ng-model="skjs4.ynyyse" readonly="readonly">
+                    </ion-item>
+                </ion-list>
+                <div align="left">
+                    <span style="margin-right: 10px;color:red;margin-left: 20px">征收范围：</span>
+                    <span style="margin-right: 10px;color:blue;">{{skjs4.yyszsfwxm}}</span>
+                </div>
+            </ion-content>
+        </ion-modal-view>
+    </script>
+    <script id="yhs.html" type="text/ng-template">
+        <ion-modal-view>
+            <ion-header-bar class="bar-positive item-button-left" align-title="center">
+                <a class="button button-clear icon ion-ios-close-outline" ng-click="closeYHSModal();"></a>
+                <h1 class="title">印花税计算</h1>
+
+            </ion-header-bar>
+            <ion-content>
+                <br/>
+                <span style="margin: 10px 0px 10px 10px;color:red;" > *营业非资金账簿和营业非资金账簿以件数计税。当选择的税目为营业非资金账簿或营业非资金账簿时，请输入整数</span>
+                <ion-list class="padding">
+                    <ion-item class="item-select item-input">
+                        <span class="input-label">印花税税目：</span>
+                        <select ng-model="skjs5.yhssm" ng-change="changeyhsm();">
+                            <option value="01">购销合同</option>
+                            <option value="02">承揽合同</option>
+                            <option value="03">建设工程勘察设计合同</option>
+                            <option value="04">建筑安装工程承包合同</option>
+                            <option value="05">财产租赁合同</option>
+                            <option value="06">货物运输合同</option>
+                            <option value="07">仓储保管合同</option>
+                            <option value="08">借款合同</option>
+                            <option value="09">财产保险合同</option>
+                            <option value="10">技术合同</option>
+                            <option value="11">产权转移书据</option>
+                            <option value="12">营业资金账簿</option>
+                            <option value="13">营业非资金账簿</option>
+                            <option value="14">权利、许可证照</option>
+                        </select>
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label">金额或件数：</span>
+                        <input type="number" ng-model="skjs5.jehjs" placeholder="请输入金额或件数">
+                    </ion-item>
+                    <ion-item>
+                        <button class="button button-positive button-full"  ng-click="yhsCount();" ng-disabled="!(skjs5.jehjs)">查看结果</button>
+                    </ion-item>
+                    <ion-item class="item-input">
+                        <span class="input-label" style="color: deepskyblue">应纳印花税额：</span>
+                        <input type="number" ng-model="skjs5.ynyhse" readonly="readonly">
+                    </ion-item>
+                </ion-list>
+                <div align="left">
+                    <span style="margin-right: 10px;color:red;margin-left: 20px">征收范围：</span>
+                    <span style="margin-right: 10px;color:blue;">{{skjs5.yhszsfwxm}}</span>
+                </div>
+            </ion-content>
+        </ion-modal-view>
+    </script>
+</ion-view>

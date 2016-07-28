@@ -1,0 +1,48 @@
+<ion-view title="个人所得税纳税申报">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="ck_fb()">附表</button>
+  </ion-nav-buttons>
+  <ion-content has-bouncing="true" >
+      <br>
+      <div>&nbsp;&nbsp;税款所属时期:{{str_sfssqqsrq}}&nbsp;至&nbsp;{{str_sfssqzzrq}}
+      </div>
+      <div>&nbsp;&nbsp;填表日期:{{tbrq}}</div>
+      <div style="text-align: right">
+        金额单位:元(列至角分)
+      </div>
+      <table class="table table-bordered" cellspacing="0" cellpadding="0" style="margin: 0px;padding: 0px;">
+          <thead >
+              <tr>
+                  <th>类别</th>
+                  <th>操作</th>
+                  <th data-hide="all">所得项目</th>
+                  <th data-hide="all">收入额</th>
+                  <th data-hide="all">免税所得</th>
+                  <th data-hide="all">基本养老保险费</th>
+                  <th data-hide="all">基本医疗保险费</th>
+                  <th data-hide="all">失业保险费</th>
+                  <th data-hide="all">住房公积金</th>
+                  <th data-hide="all">财产原值</th>
+                  <th data-hide="all">允许扣除的税费</th>
+                  <th data-hide="all">其他</th>
+                  <th data-hide="all">合计</th>
+                  <th data-hide="all">减除费用</th>
+                  <th data-hide="all">准予扣除的捐赠额</th>
+                  <th data-hide="all">应纳税所得额</th>
+                  <th data-hide="all">税率%</th>
+                  <th data-hide="all">速算扣除数</th>
+                  <th data-hide="all">应纳税额</th>
+                  <th data-hide="all">减免税额</th>
+                  <th data-hide="all">已缴税额</th>
+                  <th data-hide="all">应补(退)税额</th>
+              </tr>
+          </thead>
+          <tbody id="cx_jg_list">
+
+          </tbody>
+      </table>
+  </ion-content>
+</ion-view>

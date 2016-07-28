@@ -1,0 +1,135 @@
+<ion-view title="办税厅工作状态" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button  class="button button-icon button-clear ion-social-dropbox-outline" menu-toggle="right" ng-click="show();"></button>&nbsp;&nbsp;
+        <button  class="button button-icon button-clear ion-navicon" menu-toggle="right" ng-click="openPopover($event);"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <!--<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"> </ion-refresher>-->
+
+        <!--&lt;!&ndash;<div ng-if="showloading" style="margin-top:60px; text-align: center">-->
+            <!--<ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>&ndash;&gt;-->
+        <!--</div>-->
+        <ion-list  class="padding">
+            <ion-item style="padding: 0px;" ng-repeat="item in cityList">
+                <ion-item class="item-input" style="padding: 0px;">
+                    <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">服务厅名称</div>
+                    <div class="col col-67" style="text-align: center" >{{item.muname}}</div>
+                </ion-item>
+                <ion-item class="item-input" style="padding: 0px;">
+                    <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">在线窗口数量</div>
+                    <div class="col col-67" style="text-align: center" >{{item.countercount}}</div>
+                </ion-item>
+                <ion-item class="item-input" style="padding: 0px;">
+                    <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">等待人数</div>
+                    <div class="col col-67" style="text-align: center" >{{item.waitcount}}</div>
+                </ion-item>
+                <ion-item class="item-input" style="padding: 0px;">
+                    <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">操作</div>
+                    <div class="col col-67" style="text-align: center" >
+                        <a href="#" ng-click="shoucang(item,this);" class="myhref">{{item.sc}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#" ng-click="openGDXXModal();openGDXX('{{item.muid}}');" class="myhref">更多</a>
+                    </div>
+                </ion-item>
+                <div style="height: 10px;background-color: #f5f5f5"></div>
+            </ion-item>
+            <!--<ion-item  ng-repeat="item in cityList" >-->
+                    <!--<ion-item class="item-input" style="padding: 0px;">-->
+                        <!--<div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">服务厅名称</div>-->
+                        <!--<div class="col col-67" style="text-align: center" >{{item.muname}}</div>-->
+                    <!--</ion-item>-->
+                    <!--<ion-item class="item-input" style="padding: 0px;">-->
+                        <!--<div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">在线窗口数量</div>-->
+                        <!--<div class="col col-67" style="text-align: center" >{{item.countercount}}</div>-->
+                    <!--</ion-item>-->
+                    <!--<ion-item class="item-input" style="padding: 0px;">-->
+                        <!--<div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">等待人数</div>-->
+                        <!--<div class="col col-67" style="text-align: center" >{{item.waitcount}}</div>-->
+                    <!--</ion-item>-->
+                    <!--<ion-item class="item-input" style="padding: 0px;border-bottom-width: 5px;">-->
+                        <!--<div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">操作</div>-->
+                        <!--<div class="col col-67" style="text-align: center" >-->
+                            <!--<a href="#" ng-click="shoucang(item,this);" class="myhref">{{item.sc}}</a>&nbsp;&nbsp;-->
+                            <!--<a href="#" ng-click="openGDXXModal();openGDXX('{{item.muid}}');" class="myhref">更多</a>-->
+                        <!--</div>-->
+                    <!--</ion-item>-->
+                <!--<!--<ion-option-button class="button-calm" style="width:90px;" ng-click="shoucang(item,this);">{{item.sc}}</ion-option-button>-->
+                <!--<!--<ion-option-button class="button-energized icon ion-share" ng-click="openGDXXModal();openGDXX('{{item.muid}}');">更多</ion-option-button>-->
+                <!--<div style="height: 10px;background-color: #f5f5f5"></div>-->
+            <!--</ion-item>-->
+        </ion-list>
+        <!--<ion-infinite-scroll   on-infinite="loadMore()"  distance="1%" ng-if="showloading">        </ion-infinite-scroll>-->
+    </ion-content>
+</ion-view>
+<script id="ez-popover.html" type="text/ng-template">
+    <div style="float: right;margin:26px 9px 0px 0px;">
+        <i class="icon ion-arrow-up-b"></i>
+        <ion-popover-view class="zxzxPopover">
+            <ion-content align="center" class="zxzxContent">
+                <ion-list>
+                    <a ng-click="closePopover();dqgztList('23201');" class=" item">南&nbsp;京</a>
+                    <a ng-click="closePopover();dqgztList('23202');" class=" item">无&nbsp;锡</a>
+                    <a ng-click="closePopover();dqgztList('23203');" class=" item">徐&nbsp;州</a>
+                    <a ng-click="closePopover();dqgztList('23204');" class=" item">常&nbsp;州</a>
+                    <a ng-click="closePopover();dqgztList('23205');" class=" item">苏&nbsp;州</a>
+                    <a ng-click="closePopover();dqgztList('23206');" class=" item">南&nbsp;通</a>
+                    <a ng-click="closePopover();dqgztList('23207');" class=" item">连云港</a>
+                    <a ng-click="closePopover();dqgztList('23208');" class=" item">淮&nbsp;安</a>
+                    <a ng-click="closePopover();dqgztList('23209');" class=" item">盐&nbsp;城</a>
+                    <a ng-click="closePopover();dqgztList('23210');" class=" item">扬&nbsp;州</a>
+                    <a ng-click="closePopover();dqgztList('23211');" class=" item">镇&nbsp;江</a>
+                    <a ng-click="closePopover();dqgztList('23212');" class=" item">泰&nbsp;州</a>
+                    <a ng-click="closePopover();dqgztList('23213');" class=" item">宿&nbsp;迁</a>
+                    <a ng-click="closePopover();dqgztList('23217');" class=" item">苏州园区</a>
+                    <a ng-click="closePopover();dqgztList('23216');" class=" item">张家港保税区</a>
+                    <a ng-click="closePopover();dqgztList('23298');" class=" item">省直属局</a>
+                <!--<ion-item ng-click="closePopover();dqgztList('23201');" class="item-calm text-center">南&nbsp;京</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23202');" class="item-calm text-center">无&nbsp;锡</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23203');" class="item-calm text-center">徐&nbsp;州</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23204');" class="item-calm text-center">常&nbsp;州</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23205');" class="item-calm text-center">苏&nbsp;州</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23206');" class="item-calm text-center">南&nbsp;通</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23207');" class="item-calm text-center">连云港</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23208');" class="item-calm text-center">淮&nbsp;安</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23209');" class="item-calm text-center">盐&nbsp;城</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23210');" class="item-calm text-center">扬&nbsp;州</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23211');" class="item-calm text-center">镇&nbsp;江</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23212');" class="item-calm text-center">泰&nbsp;州</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23213');" class="item-calm text-center">宿&nbsp;迁</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23217');" class="item-calm text-center">苏州园区</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23216');" class="item-calm text-center">张家港保税区</ion-item>-->
+                <!--<ion-item ng-click="closePopover();dqgztList('23298');" class="item-calm text-center">省直属局</ion-item>-->
+            </ion-list>
+        </ion-content>
+    </ion-popover-view>
+    </div>
+</script>
+<script id="gdxx.html" type="text/ng-template">
+    <ion-modal-view cache-view="false">
+        <ion-header-bar class="bar-positive item-button-left" align-title="center">
+            <a class="button button-clear icon ion-ios-close-outline" ng-click="closeGDXXModal();"></a>
+            <h1 class="title">更多信息</h1>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list class="padding">
+                <ion-item ng-repeat="item in gdxxList" style="padding: 0px;">
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">业务名称</div>
+                        <div class="col col-75" style="text-align: center" >{{item.itemname}}</div>
+                    </ion-item>
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">完成票数</div>
+                        <div class="col col-75" style="text-align: center" >{{item.finnotecount}}</div>
+                    </ion-item>
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">等待人数</div>
+                        <div class="col col-75" style="text-align: center" >{{item.waitcount}}</div>
+                    </ion-item>
+                    <div style="height: 10px;background-color: #f5f5f5"></div>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>
+</script>

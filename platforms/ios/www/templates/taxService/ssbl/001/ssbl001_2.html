@@ -1,0 +1,70 @@
+<ion-view view-title="申请表信息">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-left" ng-click="closeZrrdj()">返回</button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="nextPage()">下一步</button>
+  </ion-nav-buttons>>
+  <ion-content has-bouncing="true" >
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">中文名称</span>
+        <input type="text" placeholder="必填" required focus-me id="ssbl001_xm_zh">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">英文名称</span>
+        <input type="text" placeholder="选填" id="ssbl001_xm_en">
+      </label>
+      <label class="item item-input item-select">
+        <span class="input-label">证件名称</span>
+        <select id="ssbl001_zjmc">
+          <option ng-repeat="item in zjInfo" ng-selected="item.ZJLX_DM=='06'" value="{{item.ZJLX_DM}}">{{item.ZJLX_MC}}</option>
+        </select>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">证件号码</span>
+        <input type="text" placeholder="必填" required id="ssbl001_zjhm">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">密码</span>
+        <input  type="password" placeholder="请输入6位数字密码" required ng-pattern="/[0-9]{6}/" id="ssbl001_mm">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">确认密码</span>
+        <input type="password" placeholder="请再次输入6位数字密码" required ng-pattern="/[0-9]{6}/" id="ssbl001_qrmm">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">任职单位名称</span>
+        <input type="text" placeholder="选填" id="ssbl001_rzdwmc_zh">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">中国境内住址</span>
+        <input type="text" placeholder="必填" required id="ssbl001_zgjnzz">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">境内通讯地址</span>
+        <input type="text" placeholder="选填" id="ssbl001_jntxdz">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">移动电话</span>
+        <input  type="number" placeholder="必填" required id="ssbl001_yddh">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">固定电话</span>
+        <input type="number" placeholder="选填" id="ssbl001_gddh">
+      </label>
+      <label class="item item-input item-select">
+        <label class="input-label">市</label>
+        <select id="ssbl001_s" ng-change="changeCity(myCity)" ng-model="myCity" ng-options="item.XZQHDS_DM as item.DSMC for item in dsInfo">
+          <option value="">选择所属市</option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <label class="input-label">县(区)</label>
+        <select id="ssbl001_xq" ng-model="myQx" ng-options="item.XZQHXQ_DM as item.XQMC for item in qxInfo">
+          <option value="">选择县(区)</option>
+        </select>
+      </label>
+    </div>
+  </ion-content>
+</ion-view>

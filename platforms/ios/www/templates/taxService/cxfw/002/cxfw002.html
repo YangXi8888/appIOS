@@ -1,0 +1,200 @@
+<ion-view title="我的税收" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-icon-right" ng-click="openGSModal();">
+                个税查询
+                <i class="icon ion-ios-arrow-down"></i>
+            </ion-item>
+            <ion-item class="item-icon-right" ng-click="openCCSModal();">
+                车船税查询
+                <i class="icon ion-ios-arrow-down"></i>
+            </ion-item>
+            <ion-item class="item-icon-right" ng-click="openQSModal();">
+                契税查询
+                <i class="icon ion-ios-arrow-down"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+<script id="gs.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-positive item-button-left" align-title="center">
+            <a class="button button-clear icon ion-ios-close-outline" ng-click="closeGSModal();"></a>
+            <h1 class="title">个税查询</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div class="padding">
+                <div class="list">
+                    <span style="margin-right: 10px;color:red;" >注：只能查询当前用户(<span style="color:blue;">{{yhxm}}</span>)的个税明细</span>
+                    <label class="item item-input">
+                        <span class="input-label">税款所属年份</span>
+                        <input ng-model="skcx.gsnf" type="number" placeholder="YYYY">
+                    </label>
+                    <button class="button button-positive button-full"  ng-click="gscx();" ng-disabled="!(skcx.gsnf)">查询</button>
+                </div>
+            </div>
+            <ion-list class="padding">
+                <ion-item ng-repeat="item in gsList" style="padding: 0px;">
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">所得项目</div>
+                        <div class="col col-67" style="text-align: center" >{{item.ZSPM_MC}}</div>
+                    </ion-item>
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">税款所属期</div>
+                        <div class="col col-67" style="text-align: center" >{{item.SF_SSQQ}}~{{item.SF_SSQZ}}</div>
+                    </ion-item>
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">收入额</div>
+                        <div class="col col-67" style="text-align: center" >{{item.SR_JE}}</div>
+                    </ion-item>
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">税率</div>
+                        <div class="col col-67" style="text-align: center" >{{item.SL}}</div>
+                    </ion-item>
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">应纳所得税额</div>
+                        <div class="col col-67" style="text-align: center" >{{item.YINGNSSD_JE}}</div>
+                    </ion-item>
+                    <ion-item class="item-input" style="padding: 0px;">
+                        <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">实缴金额</div>
+                        <div class="col col-67" style="text-align: center" >{{item.YBTSEHDJ_JE}}</div>
+                    </ion-item>
+                    <div style="height: 10px;background-color: #f5f5f5"></div>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>
+</script>
+<script id="ccs.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-positive item-button-left" align-title="center">
+            <a class="button button-clear icon ion-ios-close-outline" ng-click="closeCCSModal();"></a>
+            <h1 class="title" align="center">车船税查询</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div class="padding">
+                <div class="list">
+                    <span style="margin-right: 10px;color:red;" >注：只能查询当前用户(<span style="color:blue;">{{yhxm}}</span>)的车船税明细</span>
+                    <label class="item item-input">
+                        <span class="input-label">税款所属年份</span>
+                        <input ng-model="skcx.ccsnf" type="number" placeholder="YYYY">
+                    </label>
+                    <button class="button button-positive button-full"  ng-click="ccscx();" ng-disabled="!(skcx.ccsnf)">查询</button>
+                </div>
+            </div>
+            <ion-list class="padding">
+                    <ion-item ng-repeat="item in ccsList" style="padding: 0px;">
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd"> 号牌号码</div>
+                            <div class="col col-67" style="text-align: center" >{{item.hphmhcbmc}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">缴税日期</div>
+                            <div class="col col-67" style="text-align: center" >{{item.js_rq}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">年税额标准</div>
+                            <div class="col col-67" style="text-align: center" >{{item.nsebj_je}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">年应缴税额</div>
+                            <div class="col col-67" style="text-align: center" >{{item.bynse_je}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd"> 免征税额</div>
+                            <div class="col col-67" style="text-align: center" >{{item.mzse_je}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">减征税额</div>
+                            <div class="col col-67" style="text-align: center" >{{item.jzse_je}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">当年应缴</div>
+                            <div class="col col-67" style="text-align: center" >{{item.dnyj_je}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">往年补缴</div>
+                            <div class="col col-67" style="text-align: center" >{{item.wnbj_je}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">滞纳金</div>
+                            <div class="col col-67" style="text-align: center" >{{item.znj}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">税款合计</div>
+                            <div class="col col-67" style="text-align: center" >{{item.sj_hj_je}}</div>
+                        </ion-item>
+                        <div style="height: 10px;background-color: #f5f5f5"></div>
+                    </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>
+</script>
+<script id="qs.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-positive item-button-left" align-title="center">
+            <a class="button button-clear icon ion-ios-close-outline" ng-click="closeQSModal();"></a>
+            <h1 class="title">契税查询</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div class="padding">
+                <div class="list">
+                    <span style="margin-right: 10px;color:red;" >注：只能查询当前用户(<span style="color:blue;">{{yhxm}}</span>)的契税明细</span>
+                    <label class="item item-input">
+                        <span class="input-label">税款所属年份</span>
+                        <input ng-model="skcx.qsnf" type="number" placeholder="YYYY">
+                    </label>
+                    <button class="button button-positive button-full"  ng-click="qscx();" ng-disabled="!(skcx.qsnf)">查询</button>
+                </div>
+            </div>
+            <ion-list class="padding">
+                    <ion-item ng-repeat="item in qsList" style="padding: 0px;">
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">合同编号</div>
+                            <div class="col col-67" style="text-align: center" >{{item.htbh}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">承受方名称</div>
+                            <div class="col col-67" style="text-align: center" >{{item.csfmc}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">面积</div>
+                            <div class="col col-67" style="text-align: center" >{{item.mj}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">成交价格</div>
+                            <div class="col col-67" style="text-align: center" >{{item.cjjg_je}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">计税金额</div>
+                            <div class="col col-67" style="text-align: center" >{{item.jsje}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">税率</div>
+                            <div class="col col-67" style="text-align: center" >{{item.sl}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">计征税额</div>
+                            <div class="col col-67" style="text-align: center" >{{item.jz_je}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">减免税额</div>
+                            <div class="col col-67" style="text-align: center" >{{item.jmse}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">应纳税额</div>
+                            <div class="col col-67" style="text-align: center" >{{item.yingnse}}</div>
+                        </ion-item>
+                        <ion-item class="item-input" style="padding: 0px;">
+                            <div class="col col-33" style="text-align: center;border-right: 1px solid #dddddd">滞纳金</div>
+                            <div class="col col-67" style="text-align: center" >{{item.znj}}</div>
+                        </ion-item>
+                        <div style="height: 10px;background-color: #f5f5f5"></div>
+                    </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>
+</script>

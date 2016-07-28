@@ -1,0 +1,47 @@
+<ion-view title="社保费缴纳表" cache-view="false">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="goSubmit()">提&nbsp;交</button>
+  </ion-nav-buttons>
+  <ion-content has-bouncing="true" >
+    <ion-item style="padding:0px;">
+      <ion-item class="item-input item-divider" style="padding: 0px;">
+        <div class="col col-25" style="border-right: 1px solid #dddddd">税务登记证</div>
+        <div class="col col-75" style="text-align: center" >{{nsrsbh}}</div>
+      </ion-item>
+      <ion-item class="item-input item-divider" style="padding: 0px;">
+        <div class="col col-25" style="border-right: 1px solid #dddddd">缴费人名称</div>
+        <div class="col col-75" style="text-align: center">{{mc}}</div>
+      </ion-item>
+      <ion-item class="item-input item-divider" style="padding: 0px;border-bottom-width: 5px;">
+        <div class="col col-25" style="border-right: 1px solid #dddddd">合计金额</div>
+        <div class="col col-75" style="text-align: center" >{{hjje | number:2}}</div>
+      </ion-item>
+    </ion-item>
+    <ion-item ng-repeat="item in yingSbMx" style="padding: 0px;" >
+        <ion-item class="item-input" style="padding: 0px;">
+          <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">险种</div>
+          <div class="col col-75" style="text-align: center" >{{item.SBZSPM_MC}}</div>
+        </ion-item>
+        <ion-item class="item-input" style="padding: 0px;">
+          <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">所属时间</div>
+          <div class="col col-75" style="text-align: center" >{{item.SSQ_QSRQ}}~{{item.SSQ_ZZRQ}}</div>
+        </ion-item>
+        <ion-item class="item-input" style="padding: 0px;">
+          <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">应缴金额</div>
+          <div class="col col-75" style="text-align: center" >{{item.YJ_JE}}</div>
+        </ion-item>
+        <ion-item class="item-input" style="padding: 0px;">
+          <div class="col col-25" style="text-align: center;border-right: 1px solid #dddddd">实缴金额</div>
+          <div class="col col-75" style="text-align: center" >{{item.SJ_JE}}</div>
+        </ion-item>
+        <ion-item style="padding: 0px;border-bottom-width: 5px;">
+          <label class="checkbox checkbox-balanced col col-100" style="margin-left:85%">
+            <input type="checkbox" ng-checked="true" data-xh="{{item.XH}}" name="sbns002_checkbox" value="{{item.SJ_JE}}"  ng-disabled="isDisable" ng-click="calHj($event)">
+          </label>
+        </ion-item>
+    </ion-item>
+  </ion-content>
+</ion-view>

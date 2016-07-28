@@ -1,0 +1,40 @@
+<ion-view title="已申报明细" cache-view="false">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()">返回</button>
+  </ion-nav-buttons>
+  <ion-content delegate-handle="mainScroll" has-bouncing="true" >
+    <table class="table table-bordered" id="sbns002_table1">
+      <thead>
+      <tr>
+        <th data-toggle="true">
+          险种
+        </th>
+        <th data-hide="tablet">
+          所属时间
+        </th>
+        <th data-hide="tablet,phone">
+          应缴金额
+        </th>
+        <th data-hide="tablet,phone">
+          实缴金额
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in dataList">
+        <td>{{item.SBZSPM_MC}}</td>
+        <td>{{item.SSQ_QSRQ}}~{{item.SSQ_ZZRQ}}</td>
+        <td>{{item.YJ_JE}}</td>
+        <td>{{item.SJ_JE}}</td>
+      </tr>
+      </tbody>
+      <tfoot class="hide-if-no-paging">
+      <tr>
+        <td colspan="4">
+          <div class="pagination pagination-centered"></div>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </ion-content>
+</ion-view>
