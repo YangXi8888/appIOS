@@ -6,3 +6,7 @@
 *.xcuserstate
 
 *.pbxproj
+
+platforms/ios/appIOS.xcodeproj/project.pbxproj
+
+platforms/ios/appIOS.xcodeproj/project.xcworkspace/xcuserdata/yangxi.xcuserdatad/UserInterfaceState.xcuserstate
